@@ -1,3 +1,3 @@
-customer1,password1,Dinh Quang Vinh,123456789,email@gmail.com,123 cau dien
-customer2,password2,Nguyen Van A,11111111,email2@gmail.com,25 xa dan
-customer3,password3,Nguyen Van B,22222222,email3@gmail.com,84 My Dinh
+customer,customer1,password1,Dinh Quang Vinh,123456789,email@gmail.com,123 cau dien
+customer,customer2,password2,Nguyen Van A,11111111,email2@gmail.com,25 xa dan
+customer,customer3,password3,Nguyen Van B,22222222,email3@gmail.com,84 My Dinh
