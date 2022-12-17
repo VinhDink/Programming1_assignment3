@@ -30,8 +30,6 @@ public class Product {
     }
 
     //Setter
-
-
     public void setCategory(String category) {
         this.category = category;
     }
