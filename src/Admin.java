@@ -32,13 +32,14 @@ public class Admin {
         this.username = username;
     }
 
-    public void validateAccount() {
+    public boolean validateAccount() {
         try {
             fileScanner = new Scanner(new File("src/data/admin.txt"));
             while (fileScanner.hasNext()) {
                 String[] arr = fileScanner.nextLine().split(",");
                 if (username.equals(arr[0]) && password.equals(arr[1])) {
                     System.out.println("Login successfully!");
+                    return true;
                 } else System.out.println("Wrong password or username!");
             }
         }  catch (IOException ioe) {
@@ -47,6 +48,7 @@ public class Admin {
             fileScanner.close();
         }
 
+        return false;
     }
 }
 
