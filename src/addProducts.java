@@ -1,4 +1,5 @@
 import javax.sound.midi.SysexMessage;
+import javax.swing.border.TitledBorder;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,35 +11,32 @@ public class addProducts {
     static PrintWriter pw = null;
     static Scanner fileScanner =  null;
 
+    //Constructor
+
     public static void add() {
         try {
             fileScanner = new Scanner(new File("src/data/items.txt"));
+            ArrayList<String> name_arr = new ArrayList<String>();
             Scanner scanner = new Scanner(System.in);
-            boolean status;
-            System.out.println("Set ID for product (ID must be unique!)");
-            String ID = scanner.nextLine();
             System.out.println("Set name for product (name must be unique!)");
-            String name = scanner.nextLine();
+            String title = scanner.nextLine();
             System.out.println("Set a category");
             String category = scanner.nextLine();
             System.out.println("Set a price");
-            String price = scanner.nextLine();
-            ArrayList<String> id_arr = new ArrayList<String>();
-            ArrayList<String> name_arr = new ArrayList<String>();
+            double price = scanner.nextDouble();
             pw = new PrintWriter(new FileWriter("src/data/items.txt", true));
+            int i = 0;
             while (fileScanner.hasNext()) {
                 String[] arr = fileScanner.nextLine().split(",");
-                id_arr.add(arr[0]);
                 name_arr.add(arr[1]);
+                i++;
             }
-            if (id_arr.contains(ID) == true ) {
-                System.out.println("ID already exist!");
-            } else if (name_arr.contains(name) == true) {
+            if (name_arr.contains(title) == true) {
                 System.out.println("name already exist!");
             } else {
                 pw.write("\r\n");
-                pw.write(ID+",");
-                pw.write(name+",");
+                pw.write("Item_"+i+1+",");
+                pw.write(title +",");
                 pw.write(price+",");
                 pw.write(category);
                 System.out.println("Add product successfully!");
