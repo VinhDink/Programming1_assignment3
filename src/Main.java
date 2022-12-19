@@ -25,7 +25,8 @@ public class Main {
                         "\n2 View information of all orders" +
                         "\n3 View information of all member" +
                         "\n4 Add product" +
-                        "\n5 Delete product");
+                        "\n5 Delete product" +
+                        "\n6 Update price");
                 int option2 = scanner.nextInt();
                 if (option2 == 1) {
                     viewProducts.viewProdsInfo();
@@ -37,6 +38,8 @@ public class Main {
                     addProducts.add();
                 } else if (option2 == 5) {
                     deleteProducts.delete();
+                } else if (option2 == 6) {
+                    updatePrice.update();
                 }
             } else System.out.println("Stop");
         }

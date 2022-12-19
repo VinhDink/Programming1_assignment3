@@ -1,1 +1,4 @@
-1,Laptop,23.000,cus_1,123456789,email@gmail.com,123 my dinh
+order_id,items,total_price,customer_id,phone_number,email,address
+1,Laptop,23.000,customer_id1,123456789,email@gmail.com,123 my dinh
+2,Iphone,20.000,customer_id2,123456789,email@gmail.com,123 my dinh
+3,PC,90.000,customer_id3,123456789,email@gmail.com,123 my dinh
