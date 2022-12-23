@@ -23,32 +23,17 @@ public class deleteProducts extends Product {
                 String[] arr = getItems_data().get(i).split(",");
                 id_arr.add(arr[0]);
             }
-                while (!valid) {
-                    if (id_arr.contains(ID)==false) {
-                        System.out.println("No item matched with that id: ");
-                        valid = false;
-                    } else {
-                        int i = id_arr.indexOf(ID);
-                        getItems_data().remove(i);
-                        System.out.println("Delete product succesfully");
-                        valid = true;
-                    }
-            }    try {
-            fileScanner = new Scanner(new File("src/data/items.txt"));
-            pw = new PrintWriter(new FileWriter("src/data/items.txt", false));
-            for (int i = 0; i < getItems_data().size(); i++) {
-                pw.write(getItems_data().get(i));
-                pw.write("\r\n");
+            while (!valid) {
+                if (id_arr.contains(ID)==false) {
+                    System.out.println("No item matched with that id: ");
+                    valid = false;
+                } else {
+                    int i = id_arr.indexOf(ID);
+                    getItems_data().remove(i);
+                    System.out.println("Delete product succesfully");
+                    valid = true;
+                }
             }
-        }catch (IOException ioe) {
-            System.err.println(ioe.getMessage());
-        }
-        finally {
-            if (pw != null) {
-                pw.close();
-            }
-            fileScanner.close();
-        }
     }
 }
 
