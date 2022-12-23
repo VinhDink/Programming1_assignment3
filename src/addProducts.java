@@ -42,21 +42,5 @@ public class addProducts extends Product {
                 valid = true;
             }
         }
-        try {
-            fileScanner = new Scanner(new File("src/data/items.txt"));
-            pw = new PrintWriter(new FileWriter("src/data/items.txt", false));
-            for (int i = 0; i < getItems_data().size(); i++) {
-                pw.write(getItems_data().get(i));
-                pw.write("\r\n");
-            }
-        }catch (IOException ioe) {
-            System.err.println(ioe.getMessage());
-        }
-        finally {
-            if (pw != null) {
-                pw.close();
-            }
-            fileScanner.close();
-        }
     }
 }

@@ -1,10 +1,10 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+    static PrintWriter pw = null;
+    static Scanner fileScanner =  null;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         try {
@@ -95,9 +95,21 @@ public class Main {
                         }
                         case 4: logged_in = false;
                     }
+
+            }
+            fileScanner = new Scanner(new File("src/data/items.txt"));
+            pw = new PrintWriter(new FileWriter("src/data/items.txt", false));
+            for (int i = 0; i < items_data.size(); i++) {
+                pw.write(items_data.get(i));
+                pw.write("\r\n");
             }
         } catch (IOException ioe) {
             System.err.println(ioe.getMessage());
+        }finally {
+            if (pw != null) {
+                pw.close();
+            }
+            fileScanner.close();
         }
     }
 }
