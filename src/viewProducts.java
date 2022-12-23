@@ -1,26 +1,19 @@
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class viewProducts {
-    static Scanner fileScanner = null;
+public class viewProducts extends Product {
 
+    public viewProducts(ArrayList<String> items_data) {
+        super(items_data);
+    }
 
-    public static void viewProdsInfo() {
-        try {
-            fileScanner = new Scanner(new File("src/data/items.txt"));
-            int i = 1;
-            while (fileScanner.hasNext()) {
-                String prods = fileScanner.nextLine();
-                System.out.println("Product " + i++ +":  "+ prods);
-            }
-        }
-        catch (IOException ioe) {
-            System.err.println(ioe.getMessage());
-        }
-        finally {
-            fileScanner.close();
+    public void viewProdsInfo() {
+        for (int i = 0; i < getItems_data().size();i++)
+        {
+            System.out.println("Item "+i+": " +  getItems_data().get(i));
         }
     }
 }

@@ -1,50 +1,19 @@
+import java.util.ArrayList;
+
 public class Product {
-    private String ID;
-    private String title;
-    private double price;
-    private String category;
-
+    private ArrayList<String> items_data;
     //Constructor
-    public Product(String ID, String title, double price, String category) {
-        this.ID = ID;
-        this.title = title;
-        this.price = price;
-        this.category = category;
+    public Product(ArrayList<String> items_data) {
+        this.items_data = items_data;
     }
-
     //Getter
-    public double getPrice() {
-        return price;
-    }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public String getID() {
-        return ID;
-    }
-
-    public String getTitle() {
-        return title;
+    public ArrayList<String> getItems_data() {
+        return items_data;
     }
 
     //Setter
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public void setID(String ID) {
-        this.ID = ID;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
+    public void setItems_data(ArrayList<String> items_data) {
+        this.items_data = items_data;
     }
 }
-
-

@@ -1,49 +1,55 @@
-import javax.sound.midi.SysexMessage;
-import javax.swing.border.TitledBorder;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.ArrayList;
-
-public class addProducts {
+import java.io.File;
+public class addProducts extends Product {
     static PrintWriter pw = null;
     static Scanner fileScanner =  null;
 
     //Constructor
 
-    public static void add() {
+    public addProducts(ArrayList<String> items_data) {
+        super(items_data);
+    }
+
+
+    public void add() {
+        int a = 0;
+        ArrayList<String> name_arr = new ArrayList<String>();
+        for (int i = 0; i < getItems_data().size(); i++) {
+            String[] arr = getItems_data().get(i).split(",");
+            a = i+1;
+            name_arr.add(arr[1]);
+        }
+        String index = Integer.toString(a);
+        Scanner scanner = new Scanner(System.in);
+        boolean valid = false;
+        while (!valid) {
+            System.out.println("Enter name for product(name must be unique)");
+            String name = scanner.nextLine();
+            System.out.println("Enter product's price: ");
+            double price = scanner.nextDouble();
+            scanner.nextLine();
+            System.out.println("Enter product's category: ");
+            String category = scanner.nextLine();
+            if (name_arr.contains(name)) {
+                System.out.println("Name taken!");
+                valid = false;
+            } else {
+                getItems_data().add("item_" + index+ "," + name + "," + price + "," + category);
+                valid = true;
+            }
+        }
         try {
             fileScanner = new Scanner(new File("src/data/items.txt"));
-            ArrayList<String> name_arr = new ArrayList<String>();
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Set name for product (name must be unique!)");
-            String title = scanner.nextLine();
-            System.out.println("Set a category");
-            String category = scanner.nextLine();
-            System.out.println("Set a price");
-            double price = scanner.nextDouble();
-            pw = new PrintWriter(new FileWriter("src/data/items.txt", true));
-            int i = 0;
-            while (fileScanner.hasNext()) {
-                String[] arr = fileScanner.nextLine().split(",");
-                name_arr.add(arr[1]);
-                i++;
-            }
-            if (name_arr.contains(title) == true) {
-                System.out.println("name already exist!");
-            } else {
+            pw = new PrintWriter(new FileWriter("src/data/items.txt", false));
+            for (int i = 0; i < getItems_data().size(); i++) {
+                pw.write(getItems_data().get(i));
                 pw.write("\r\n");
-                pw.write("Item_"+i+1+",");
-                pw.write(title +",");
-                pw.write(price+",");
-                pw.write(category);
-                System.out.println("Add product successfully!");
             }
-
-        }
-        catch(IOException ioe) {
+        }catch (IOException ioe) {
             System.err.println(ioe.getMessage());
         }
         finally {
@@ -51,7 +57,6 @@ public class addProducts {
                 pw.close();
             }
             fileScanner.close();
-
         }
     }
 }

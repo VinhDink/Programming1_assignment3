@@ -49,8 +49,8 @@ public class categoryModifier {
         Scanner fileScanner =  null;
         PrintWriter pw = null;
 
-        String OriginalPath = "src/items.txt";
-        String tempPath = "src/temp.txt";
+        String OriginalPath = "src/data/items.txt";
+        String tempPath = "src/data/temp.txt";
         try {
             fileScanner = new Scanner(new File(OriginalPath));
             File originalFile = new File(OriginalPath);
