@@ -5,38 +5,45 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class deleteProducts {
-    static Scanner fileScanner =  null;
+public class deleteProducts extends Product {
     static PrintWriter pw = null;
+    static Scanner fileScanner =  null;
+    //Constructor
+    public deleteProducts(ArrayList<String> items_data) {
+        super(items_data);
+    }
 
-    public static void delete() {
-        try {
-            fileScanner = new Scanner(new File("src/data/items.txt"));
-            File original = new File("src/data/items.txt");
-            File temp = new File("src/data/temp.txt");
+    public void delete() {
             ArrayList<String> id_arr = new ArrayList<String>();
-            temp.createNewFile();
-            pw = new PrintWriter(new FileWriter("src/data/temp.txt", false));
             Scanner scanner = new Scanner(System.in);
+            boolean valid = false;
             System.out.println("Enter the ID of the product you want to delete:");
             String ID = scanner.nextLine();
-            while (fileScanner.hasNext()) {
-                String[] arr = fileScanner.nextLine().split(",");
+            for (int i = 0; i < getItems_data().size(); i++) {
+                String[] arr = getItems_data().get(i).split(",");
                 id_arr.add(arr[0]);
-                if (ID.equals(arr[0]) == false) {
-                    pw.write(arr[0]+","+arr[1]+","+arr[2]+","+arr[3]);
-                    pw.write("\r\n");
-                }
             }
-            if (id_arr.contains(ID) == false) {
-                System.out.println("No item matched with that id: ");
-            }else {
-                System.out.println("Delete product succesfully");
+                while (!valid) {
+                    if (id_arr.contains(ID)==false) {
+                        System.out.println("No item matched with that id: ");
+                        valid = false;
+                    } else {
+                        int i = id_arr.indexOf(ID);
+                        getItems_data().remove(i);
+                        System.out.println("Delete product succesfully");
+                        valid = true;
+                    }
+            }    try {
+            fileScanner = new Scanner(new File("src/data/items.txt"));
+            pw = new PrintWriter(new FileWriter("src/data/items.txt", false));
+            for (int i = 0; i < getItems_data().size(); i++) {
+                pw.write(getItems_data().get(i));
+                pw.write("\r\n");
             }
-            temp.renameTo(original);
-        } catch (IOException ioe) {
+        }catch (IOException ioe) {
             System.err.println(ioe.getMessage());
-        } finally {
+        }
+        finally {
             if (pw != null) {
                 pw.close();
             }
@@ -44,3 +51,5 @@ public class deleteProducts {
         }
     }
 }
+
+
