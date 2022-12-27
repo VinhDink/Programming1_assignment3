@@ -58,7 +58,9 @@ public class Main {
                                             "\n4 Add product" +
                                             "\n5 Delete product" +
                                             "\n6 Update price" +
-                                            "\n7 Return");
+                                            "\n7 Get order information by customer ID" +
+                                            "\n8 Change order's status" +
+                                            "\n9 Return");
                                     int option2 = scanner.nextInt();
                                     switch (option2) {
                                         case 1:
@@ -86,6 +88,14 @@ public class Main {
                                             update.update();
                                             break;
                                         case 7:
+                                            getOrderInfo order = new getOrderInfo(orders_data);
+                                            order.getOrder();
+                                            break;
+                                        case 8:
+                                            changeOrderStatus ord = new changeOrderStatus(orders_data);
+                                            ord.changeStatus();
+                                            break;
+                                        case 9:
                                             active = false;
                                             logged_in = true;
                                     }
@@ -101,6 +111,12 @@ public class Main {
             pw = new PrintWriter(new FileWriter("src/data/items.txt", false));
             for (int i = 0; i < items_data.size(); i++) {
                 pw.write(items_data.get(i));
+                pw.write("\r\n");
+            }
+            fileScanner = new Scanner(new File("src/data/orders.txt"));
+            pw = new PrintWriter(new FileWriter("src/data/orders.txt", false));
+            for (int i = 0; i < orders_data.size(); i++) {
+                pw.write(orders_data.get(i));
                 pw.write("\r\n");
             }
         } catch (IOException ioe) {
