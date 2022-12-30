@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     static PrintWriter pw = null;
+    static PrintWriter pw2 = null;
     static Scanner fileScanner =  null;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -104,26 +105,27 @@ public class Main {
                             break;
                         }
                         case 4: logged_in = false;
+                            fileScanner = new Scanner(new File("src/data/items.txt"));
+                            pw2 = new PrintWriter(new FileWriter("src/data/items.txt", false));
+                            for (int i = 0; i < items_data.size(); i++) {
+                                pw2.write(items_data.get(i));
+                                pw2.write("\r\n");
+                            }
+                            fileScanner = new Scanner(new File("src/data/orders.txt"));
+                            pw = new PrintWriter(new FileWriter("src/data/orders.txt", false));
+                            for (int i = 0; i < orders_data.size(); i++) {
+                                pw.write(orders_data.get(i));
+                                pw.write("\r\n");
+                            }
                     }
 
             }
-            fileScanner = new Scanner(new File("src/data/items.txt"));
-            pw = new PrintWriter(new FileWriter("src/data/items.txt", false));
-            for (int i = 0; i < items_data.size(); i++) {
-                pw.write(items_data.get(i));
-                pw.write("\r\n");
-            }
-            fileScanner = new Scanner(new File("src/data/orders.txt"));
-            pw = new PrintWriter(new FileWriter("src/data/orders.txt", false));
-            for (int i = 0; i < orders_data.size(); i++) {
-                pw.write(orders_data.get(i));
-                pw.write("\r\n");
-            }
-        } catch (IOException ioe) {
+        }catch (IOException ioe) {
             System.err.println(ioe.getMessage());
         }finally {
             if (pw != null) {
                 pw.close();
+                pw2.close();
             }
             fileScanner.close();
         }
