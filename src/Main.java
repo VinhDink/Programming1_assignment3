@@ -22,10 +22,10 @@ public class Main {
                 orders_data.add(data);
             }
             Scanner customers_file = new Scanner(new File("src/data/customers.txt"));
-            ArrayList<String> customers_data = new ArrayList<String>();
+            ArrayList<String> customer_data = new ArrayList<String>();
             while (customers_file.hasNext()) {
                 String data = customers_file.nextLine();
-                customers_data.add(data);
+                customer_data.add(data);
             }
             System.out.println("COSC2081 GROUP ASSIGNMENT\n" +
                     "STORE ORDER MANAGEMENT SYSTEM\n" +
@@ -34,7 +34,7 @@ public class Main {
                     "s3926232, Dinh Quang Vinh\n" +
                     "sXXXXXXX, Student Name\n" +
                     "sXXXXXXX, Student Name\n" +
-                    "sXXXXXXX, Student Name");
+                    "s3924871, Nguyen Minh Nhat");
             boolean logged_in = true;
             while (logged_in) {
                 System.out.println("Choose the option by enter its index!");
@@ -73,7 +73,7 @@ public class Main {
                                             ords.viewOrdersInfo();
                                             break;
                                         case 3:
-                                            viewMembers mem = new viewMembers(customers_data);
+                                            viewMembers mem = new viewMembers(customer_data);
                                             mem.viewCustomerInfo();
                                             break;
                                         case 4:
