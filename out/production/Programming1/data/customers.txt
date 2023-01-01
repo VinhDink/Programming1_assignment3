@@ -1,3 +1,3 @@
-customer_id1,customer1,password1,Dinh Quang Vinh,123456789,email@gmail.com,123 cau dien
-customer_id2,customer2,password2,Nguyen Van A,11111111,email2@gmail.com,25 xa dan
-customer_id3,customer3,password3,Nguyen Van B,22222222,email3@gmail.com,84 My Dinh
+customer_id1,customer1,password1,Dinh Quang Vinh,123456789,email@gmail.com,123 cau dien,Silver
+customer_id2,customer2,password2,Nguyen Van A,11111111,email2@gmail.com,25 xa dan,Gold
+customer_id3,customer3,password3,Nguyen Van B,22222222,email3@gmail.com,84 My Dinh,Platinum
