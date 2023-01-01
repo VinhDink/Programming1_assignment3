@@ -108,6 +108,8 @@ public class createOrder extends Product{
                         status = "unpaid";
                     } else {status = "paid";}
                     //write new order to orders.txt
+
+                    //đoạn này chỉnh lại nhé, viết data vào arrlist thôi, sau khi thoát chương trình ở main thì mới ghi vào file
                     try {
                         pw = new PrintWriter(new FileWriter("src/data/orders.txt", true));
                         int orderId = order_data.size(); //the id of order
@@ -117,6 +119,7 @@ public class createOrder extends Product{
                         }
                         pw.printf("%d,%s,%s,%s,%s\n", orderId, result, resultCustomer, d, status); //add order info
                     }
+                    //
                     catch (IOException ioe) {
                         System.err.println(ioe.getMessage());
                     }
