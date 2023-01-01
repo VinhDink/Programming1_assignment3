@@ -172,8 +172,8 @@ public class Main {
                             }
                             fileScanner = new Scanner(new File("src/data/customers.txt"));
                             pw3 = new PrintWriter(new FileWriter("src/data/customers.txt", false));
-                            for (int i = 0; i < orders_data.size(); i++) {
-                                pw3.write(orders_data.get(i));
+                            for (int i = 0; i < customer_data.size(); i++) {
+                                pw3.write(customer_data.get(i));
                                 pw3.write("\r\n");
                             }
                     }
