@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Main {
     static PrintWriter pw = null;
     static PrintWriter pw2 = null;
+    static PrintWriter pw3 = null;
     static Scanner fileScanner =  null;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -42,26 +43,35 @@ public class Main {
                 + "4 Exist");
                 int option1 = scanner.nextInt();
                     switch (option1) {
-                        case 1:System.out.println("1 View all information\n2 Update information\n3 Check current membership status\n4 List all products \n5 Sort products by price order\n6 Create a new order\n7 View my orders");
-                            int customerOption1 = scanner.nextInt();
-                            switch (customerOption1) {
-                                case 5:
-                                    System.out.println("1 Price from low to high\n2 Price from high to low");
-                                    int customerOption2 = scanner.nextInt();
-                                    switch (customerOption2) {
-                                        case 1:
-                                            sortPriceAscending ascending = new sortPriceAscending(items_data);
-                                            ascending.sortPrice();
-                                            break;
-                                        case 2:
-                                            sortPriceDescending descending = new sortPriceDescending(items_data);
-                                            descending.sortPrice();
-                                            break;
-                                    }
-                                case 6:
-                                    createOrder order = new createOrder(customer_data, items_data);
-                                    order.createOrder(items_data, orders_data,customer_data);
+                        case 1:
+                            boolean active1 = true;
+                            while (active1) {
+                                System.out.println("1 View all information\n2 Update information\n3 Check current membership status\n4 List all products \n5 Sort products by price order\n6 Create a new order\n7 View my orders\n8 Exist");
+                                int customerOption1 = scanner.nextInt();
+                                switch (customerOption1) {
+                                    case 5:
+                                        System.out.println("1 Price from low to high\n2 Price from high to low");
+                                        int customerOption2 = scanner.nextInt();
+                                        switch (customerOption2) {
+                                            case 1:
+                                                sortPriceAscending ascending = new sortPriceAscending(items_data);
+                                                ascending.sortPrice();
+                                                break;
+                                            case 2:
+                                                sortPriceDescending descending = new sortPriceDescending(items_data);
+                                                descending.sortPrice();
+                                                break;
+                                        }
+                                        break;
+                                    case 6:
+                                        createOrder order = new createOrder(customer_data, items_data);
+                                        order.createOrder(items_data, orders_data, customer_data);
+                                        break;
+                                    case 8:
+                                        active1 = false;
                                 }
+                            }
+                        break;
                         case 3: {
                             System.out.println("Enter your username");
                             String username = scanner.next();
@@ -79,7 +89,12 @@ public class Main {
                                             "\n6 Update price" +
                                             "\n7 Get order information by customer ID" +
                                             "\n8 Change order's status" +
-                                            "\n9 Return");
+                                            "\n9 Remove customer by ID:" +
+                                            "\n10 Calculate total revenue" +
+                                            "\n11 Calculate day revenue" +
+                                            "\n12 See most popular product" +
+                                            "\n13 See least popular product" +
+                                            "\n15 Return");
                                     int option2 = scanner.nextInt();
                                     switch (option2) {
                                         case 1:
@@ -115,6 +130,26 @@ public class Main {
                                             ord.changeStatus();
                                             break;
                                         case 9:
+                                            removeCustomer remove = new removeCustomer(customer_data);
+                                            remove.remove();
+                                            break;
+                                        case 10:
+                                            calculateRevenue cal = new calculateRevenue(orders_data);
+                                            cal.totalRevenue();
+                                            break;
+                                        case 11:
+                                            calculateRevenue cal2 = new calculateRevenue(orders_data);
+                                            cal2.dayRevenue();
+                                            break;
+                                        case 12:
+                                            popularProduct prod = new popularProduct(orders_data);
+                                            prod.mostPopular();
+                                            break;
+                                        case 13:
+                                            popularProduct prod2 = new popularProduct(orders_data);
+                                            prod2.leastPopular();
+                                            break;
+                                        case 15:
                                             active = false;
                                             logged_in = true;
                                     }
@@ -135,6 +170,12 @@ public class Main {
                                 pw.write(orders_data.get(i));
                                 pw.write("\r\n");
                             }
+                            fileScanner = new Scanner(new File("src/data/customers.txt"));
+                            pw3 = new PrintWriter(new FileWriter("src/data/customers.txt", false));
+                            for (int i = 0; i < orders_data.size(); i++) {
+                                pw3.write(orders_data.get(i));
+                                pw3.write("\r\n");
+                            }
                     }
 
             }
@@ -144,6 +185,7 @@ public class Main {
             if (pw != null) {
                 pw.close();
                 pw2.close();
+                pw3.close();
             }
             fileScanner.close();
         }
