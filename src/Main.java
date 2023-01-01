@@ -58,6 +58,9 @@ public class Main {
                                             descending.sortPrice();
                                             break;
                                     }
+                                case 6:
+                                    createOrder order = new createOrder(customer_data, items_data);
+                                    order.createOrder(items_data, orders_data,customer_data);
                                 }
                         case 3: {
                             System.out.println("Enter your username");
