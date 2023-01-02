@@ -100,7 +100,6 @@ public class createOrder extends Product{
                         if (i.equals(split[4])) continue;
                         System.out.printf("%s\t", i);
                     }
-
                 }
             }
             //more items?
