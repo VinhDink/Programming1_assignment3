@@ -12,8 +12,8 @@ public class sortPriceAscending extends Product{
     public void sortPrice() throws FileNotFoundException {
         FileReader file = new FileReader("src/data/items.txt");
         Scanner fileScanner = new Scanner(file);
-        ArrayList<Double> priceList = new ArrayList();
-        ArrayList<String> itemList = new ArrayList();
+        ArrayList<Double> priceList = new ArrayList<>();
+        ArrayList<String> itemList = new ArrayList<>();
 
         while(fileScanner.hasNext()) {
             String[] split = fileScanner.nextLine().split(",");
@@ -26,7 +26,7 @@ public class sortPriceAscending extends Product{
         }
 
         Collections.sort(priceList);
-        ArrayList<String> stringPriceList = new ArrayList();
+        ArrayList<String> stringPriceList = new ArrayList<>();
 
         for (Double aDouble : priceList) {
             stringPriceList.add(aDouble.toString());
