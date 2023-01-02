@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     static PrintWriter pw = null;
+    static PrintWriter pw2 = null;
     static Scanner fileScanner =  null;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -21,10 +22,10 @@ public class Main {
                 orders_data.add(data);
             }
             Scanner customers_file = new Scanner(new File("src/data/customers.txt"));
-            ArrayList<String> customers_data = new ArrayList<String>();
+            ArrayList<String> customer_data = new ArrayList<String>();
             while (customers_file.hasNext()) {
                 String data = customers_file.nextLine();
-                customers_data.add(data);
+                customer_data.add(data);
             }
             System.out.println("COSC2081 GROUP ASSIGNMENT\n" +
                     "STORE ORDER MANAGEMENT SYSTEM\n" +
@@ -33,7 +34,7 @@ public class Main {
                     "s3926232, Dinh Quang Vinh\n" +
                     "sXXXXXXX, Student Name\n" +
                     "sXXXXXXX, Student Name\n" +
-                    "sXXXXXXX, Student Name");
+                    "s3924871, Nguyen Minh Nhat");
             boolean logged_in = true;
             while (logged_in) {
                 System.out.println("Choose the option by enter its index!");
@@ -57,6 +58,9 @@ public class Main {
                                             descending.sortPrice();
                                             break;
                                     }
+                                case 6:
+                                    createOrder order = new createOrder(customer_data, items_data);
+                                    order.createOrder(items_data, orders_data,customer_data);
                                 }
                         case 3: {
                             System.out.println("Enter your username");
@@ -87,7 +91,7 @@ public class Main {
                                             ords.viewOrdersInfo();
                                             break;
                                         case 3:
-                                            viewMembers mem = new viewMembers(customers_data);
+                                            viewMembers mem = new viewMembers(customer_data);
                                             mem.viewCustomerInfo();
                                             break;
                                         case 4:
@@ -119,26 +123,27 @@ public class Main {
                             break;
                         }
                         case 4: logged_in = false;
+                            fileScanner = new Scanner(new File("src/data/items.txt"));
+                            pw2 = new PrintWriter(new FileWriter("src/data/items.txt", false));
+                            for (int i = 0; i < items_data.size(); i++) {
+                                pw2.write(items_data.get(i));
+                                pw2.write("\r\n");
+                            }
+                            fileScanner = new Scanner(new File("src/data/orders.txt"));
+                            pw = new PrintWriter(new FileWriter("src/data/orders.txt", false));
+                            for (int i = 0; i < orders_data.size(); i++) {
+                                pw.write(orders_data.get(i));
+                                pw.write("\r\n");
+                            }
                     }
 
             }
-            fileScanner = new Scanner(new File("src/data/items.txt"));
-            pw = new PrintWriter(new FileWriter("src/data/items.txt", false));
-            for (int i = 0; i < items_data.size(); i++) {
-                pw.write(items_data.get(i));
-                pw.write("\r\n");
-            }
-            fileScanner = new Scanner(new File("src/data/orders.txt"));
-            pw = new PrintWriter(new FileWriter("src/data/orders.txt", false));
-            for (int i = 0; i < orders_data.size(); i++) {
-                pw.write(orders_data.get(i));
-                pw.write("\r\n");
-            }
-        } catch (IOException ioe) {
+        }catch (IOException ioe) {
             System.err.println(ioe.getMessage());
         }finally {
             if (pw != null) {
                 pw.close();
+                pw2.close();
             }
             fileScanner.close();
         }

@@ -1,24 +1,38 @@
-import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
-public class calculateRevenue {
-    static Scanner fileScanner = null;
 
-    public static void totalRevenue() {
-        try {
-            String ordersPath = "src/data/orders.txt";
-            fileScanner = new Scanner(new File(ordersPath));
-            double total = 0;
+public class calculateRevenue extends Order{
+    public calculateRevenue(ArrayList<String> orders_data) {
+        super(orders_data);
+    }
 
-            while (fileScanner.hasNext()) {
-                String[] data = fileScanner.nextLine().split(",");
-                total += Double.parseDouble(data[2]);
+    public void totalRevenue() {
+        float total = 0;
+        for (int i = 0; i < getOrders_data().size(); i++) {
+            String[] order_arr = getOrders_data().get(i).split(",");
+            if (order_arr[8].equals("paid")) {
+                total += Float.parseFloat(order_arr[2]);
             }
-            System.out.printf("%.3f VND\n", total);
-        } catch (IOException ioe) {
-            System.err.println(ioe.getMessage());
-        } finally {
-            fileScanner.close();
         }
+        System.out.println("Total revenue is: " + total + "VND (Paid orders only)");
+    }
 
+    public void dayRevenue() {
+        float paid = 0;
+        float unpaid = 0;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter day:");
+        String day = scanner.nextLine();
+        for (int i = 0; i < getOrders_data().size(); i++) {
+            String[] order_arr = getOrders_data().get(i).split(",");
+            if (order_arr[7].equals(day)) {
+                if (order_arr[8].equals("paid")) {
+                    paid += Float.parseFloat(order_arr[2]);
+                }
+                unpaid += Float.parseFloat(order_arr[2]);
+            }
+        }
+        System.out.println("Total revenue for day " + day + " is " + paid + "VND (Paid orders only)");
+        System.out.println("Total revenue for day " + day + " is " + unpaid + "VND (Paid and Unpaid orders)");
     }
 }
