@@ -23,7 +23,7 @@ public class addProducts extends Product {
             a = i+1;
             name_arr.add(arr[1]);
         }
-        String index = Integer.toString(a);
+        String index = Integer.toString(a+1);
         Scanner scanner = new Scanner(System.in);
         boolean valid = false;
         while (!valid) {
@@ -34,11 +34,13 @@ public class addProducts extends Product {
             scanner.nextLine();
             System.out.println("Enter product's category: ");
             String category = scanner.nextLine();
+            System.out.println("Enter product's amount: ");
+            int amount = scanner.nextInt();
             if (name_arr.contains(name)) {
                 System.out.println("Name taken!");
                 valid = false;
             } else {
-                getItems_data().add("item_" + index+ "," + name + "," + price + "," + category);
+                getItems_data().add("item_" + index+ "," + name + "," + price + "," + category + "," + amount);
                 valid = true;
             }
         }
