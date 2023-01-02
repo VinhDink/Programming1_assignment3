@@ -1,5 +1,7 @@
-order_id,items,total_price,customer_id,phone_number,email,address,order_date,status
 1,Laptop,23.000,customer_id1,123456789,email@gmail.com,123 my dinh,2023-01-01,paid
-2,Iphone,20.000,customer_id2,123456789,email@gmail.com,123 my dinh,2023-01-01,unpaid
+2,Iphone,20.000,customer_id2,123456789,email@gmail.com,123 my dinh,2023-01-01,paid
 3,PC,90.000,customer_id3,123456789,email@gmail.com,123 my dinh,2023-01-01,paid
 4,Car,3213.123,customer_id3,333,hotmail@gmail.com,65 tran nhat duat,2022-12-01,paid
+5,Car,3213.123,customer_id3,333,hotmail@gmail.com,65 tran nhat duat,2022-12-01,paid
+6,PC,90.000,customer_id3,123456789,email@gmail.com,123 my dinh,2023-01-01,paid
+7,Iphone,20.000,customer_id2,123456789,email@gmail.com,123 my dinh,2023-01-01,unpaid
