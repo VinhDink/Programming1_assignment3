@@ -1,8 +1,6 @@
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Scanner;
 
 public class createOrder extends Product{
@@ -15,13 +13,13 @@ public class createOrder extends Product{
     public void createOrder(ArrayList<String> item_data, ArrayList<String> order_data, ArrayList<String> customer_data)
             throws IOException {
         Scanner sc = new Scanner(System.in);
-        PrintWriter pw = null;
         boolean matched = false;
-        String resultCustomer = null;
-        String membership = null;
+        String membership;
         double discount = 0;
-        double newPrice = 0;
-        Date date = new Date();
+        double totalPrice = 0;
+        String customerID = null, phone = null, email = null, address = null;
+        LocalDate date = LocalDate.now();
+        ArrayList<String> item = new ArrayList<>();
 
         //view customer info and membership
         System.out.println("Please enter your customerID:");
@@ -30,8 +28,11 @@ public class createOrder extends Product{
             for (String i : customer_data) {
                 String[] split = i.split(",");
                 if (split[0].equals(ans)) {
-                    resultCustomer = String.format("%s, %s, %s, %s",
-                            split[0], split[4], split[5], split[6]); //prepare to add to data files
+                    customerID = split[0];
+                    phone = split[4];
+                    email = split[5];
+                    address = split[6];
+
                     //print customer info
                     System.out.println("Your information:");
                     for (String j : split) {
@@ -73,9 +74,9 @@ public class createOrder extends Product{
 
 
         //create order
-        System.out.println("Enter the productID of product that you want to purchase:");
         boolean available = false;
         do{
+            System.out.println("Enter the productID of product that you want to purchase:");
             String ans = sc.nextLine();
             for (String a : item_data) {
                 String[] split = a.split(",");
@@ -92,42 +93,41 @@ public class createOrder extends Product{
                     //display item after applying discount
                     System.out.println("\n");
                     System.out.println("After applying discount, your item is");
-                    String result = String.format("%s,%s", split[1], split[2]);
-                    newPrice = Double.parseDouble(split[2])*discount;
-                    split[2] = String.valueOf(newPrice);
+                    totalPrice += Double.parseDouble(split[2]) * discount;
+                    split[2] = String.valueOf(Double.parseDouble(split[2]) * discount);
+                    item.add(split[1]);
                     for (String i : split) {
                         if (i.equals(split[4])) continue;
                         System.out.printf("%s\t", i);
                     }
 
-                    //paid or unpaid?
-                    System.out.println("\nHow do you want to purchase? (COD/Online Banking)");
-                    String an = sc.nextLine();
-                    String status = null;
-                    if (an.charAt(0) == 'C' || an.charAt(0) == 'c') {
-                        status = "unpaid";
-                    } else {status = "paid";}
-                    //write new order to orders.txt
-                    try {
-                        pw = new PrintWriter(new FileWriter("src/data/orders.txt", true));
-                        int orderId = order_data.size(); //the id of order
-                        String d = String.valueOf(date);
-                        if (orderId == 5) {
-                            pw.println("");
-                        }
-                        pw.printf("%d,%s,%s,%s,%s\n", orderId, result, resultCustomer, d, status); //add order info
-                    }
-                    catch (IOException ioe) {
-                        System.err.println(ioe.getMessage());
-                    }
-                    finally {
-                        if (pw != null) {
-                            pw.close();
-                        }
-                    }
-                    available = true;
                 }
             }
+            //more items?
+            System.out.println("\nDo you want to continue shopping? (Yes/No)");
+            Scanner scanner = new Scanner(System.in);
+            String answer = scanner.nextLine();
+            if (answer.charAt(0) == 'Y' || answer.charAt(0) == 'y') {
+                continue;
+            }
+
+            //paid or unpaid?
+            System.out.println("\nHow do you want to purchase? (COD/Online Banking)");
+            String paymentMethod = sc.nextLine();
+            String status;
+            if (paymentMethod.charAt(0) == 'C' || paymentMethod.charAt(0) == 'c') {
+                status = "unpaid";
+            } else {
+                status = "paid";
+            }
+
+            //write new order to orders-data arraylist
+            int orderId = order_data.size(); //the id of order
+            order_data.add(String.format("%d,%s,%.3f,%s,%s,%s,%s,%s,%s",
+                    orderId, item, totalPrice, customerID, phone, email, address, date, status));
+            setItems_data(order_data);
+            available = true;
+
             if (available) {
                 System.out.println("\nYour order is processing...\nCreate Order successfully!");
             } else {
