@@ -94,6 +94,7 @@ public class Main {
                                             "\n11 Calculate day revenue" +
                                             "\n12 See most popular product" +
                                             "\n13 See least popular product" +
+                                            "\n14 See all order in a particular day" +
                                             "\n15 Return");
                                     int option2 = scanner.nextInt();
                                     switch (option2) {
@@ -148,6 +149,10 @@ public class Main {
                                         case 13:
                                             popularProduct prod2 = new popularProduct(orders_data);
                                             prod2.leastPopular();
+                                            break;
+                                        case 14:
+                                            dayOrder ord2 = new dayOrder(orders_data);
+                                            ord2.executedOrder();
                                             break;
                                         case 15:
                                             active = false;
