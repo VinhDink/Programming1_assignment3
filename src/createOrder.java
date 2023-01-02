@@ -68,7 +68,7 @@ public class createOrder extends Product{
                 }
                 System.out.println("");
             } else {
-                System.out.println("Your ID is not initialized, please try again!");
+                System.out.println("Your ID is not available, please try again!");
             }
         } while (!matched);
 
@@ -81,6 +81,12 @@ public class createOrder extends Product{
             for (String a : item_data) {
                 String[] split = a.split(",");
                 if (split[0].equals(ans)) {
+                    //update in stock value of item_data arraylist
+                    int inStock = Integer.parseInt(split[4]);
+                    split[4] = String.valueOf(inStock-1);
+                    item_data.set(item_data.indexOf(a),String.format("%s,%s,%s,%s,%s",
+                            split[0], split[1], split[2], split[3], split[4]));
+
 
                     //display item
                     System.out.println("");
