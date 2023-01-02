@@ -34,7 +34,7 @@ public class sortPriceDescending extends Product {
             stringPriceList.add(aDouble.toString());
         }
 
-        System.out.printf("PRICE FROM LOWEST TO HIGHEST:\n\n%-15s%-30s%-10s%-5s\n" +
+        System.out.printf("PRICE FROM HIGHEST TO LOWEST:\n\n%-15s%-30s%-10s%-5s\n" +
                         "----------------------------------------------------------------",
                 "ID", "Title", "Price", "Category");
 
