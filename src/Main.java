@@ -46,7 +46,15 @@ public class Main {
                         case 1:
                             boolean active1 = true;
                             while (active1) {
-                                System.out.println("1 View all information\n2 Update information\n3 Check current membership status\n4 List all products \n5 Sort products by price order\n6 Create a new order\n7 View my orders\n8 Exist");
+                                System.out.println("1 View all information\n" +
+                                        "2 Update information\n" +
+                                        "3 Check current membership status\n" +
+                                        "4 List all products \n" +
+                                        "5 Sort products by price order\n" +
+                                        "6 Search products by category and price\n" +
+                                        "7 Create a new order\n" +
+                                        "8 View all my orders and order information\n" +
+                                        "9 Exist");
                                 int customerOption1 = scanner.nextInt();
                                 switch (customerOption1) {
                                     case 5:
@@ -64,14 +72,22 @@ public class Main {
                                         }
                                         break;
                                     case 6:
+                                        searchProduct search = new searchProduct(items_data);
+                                        search.search(items_data);
+                                        break;
+                                    case 7:
                                         createOrder order = new createOrder(customer_data, items_data);
                                         order.createOrder(items_data, orders_data, customer_data);
                                         break;
                                     case 8:
+                                        viewOrder order1 = new viewOrder(orders_data);
+                                        order1.view(orders_data);
+                                        break;
+                                    case 9:
                                         active1 = false;
                                 }
                             }
-                        break;
+                            break;
                         case 3: {
                             System.out.println("Enter your username");
                             String username = scanner.next();
