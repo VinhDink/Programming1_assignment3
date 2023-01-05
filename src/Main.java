@@ -111,7 +111,9 @@ public class Main {
                                             "\n12 See most popular product" +
                                             "\n13 See least popular product" +
                                             "\n14 See all order in a particular day" +
-                                            "\n15 Return");
+                                            "\n15 See customer with the most pay" +
+                                            "\n16 See total numbers of all membership" +
+                                            "\n17 Return");
                                     int option2 = scanner.nextInt();
                                     switch (option2) {
                                         case 1:
@@ -171,6 +173,14 @@ public class Main {
                                             ord2.executedOrder();
                                             break;
                                         case 15:
+                                            customerPay pay = new customerPay(orders_data);
+                                            pay.mostPay();
+                                            break;
+                                        case 16:
+                                            membershipList mem2 = new membershipList(customer_data);
+                                            mem2.showList();
+                                            break;
+                                        case 17:
                                             active = false;
                                             logged_in = true;
                                     }
