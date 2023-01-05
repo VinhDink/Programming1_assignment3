@@ -8,12 +8,13 @@ public class categoryModifier extends Product{
     public void removeCategory() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter a category to remove:");
-        String category = scanner.nextLine();
+        String input = scanner.nextLine();
+        String category = input.toLowerCase();
         boolean found = false;
         for (int i = 0; i < getItems_data().size(); i++) {
             String[] item_arr = getItems_data().get(i).split(",");
-            if (item_arr[3].equals(category)) {
-                String new_data = item_arr[0]+","+item_arr[1]+","+item_arr[2]+","+"none";
+            if (item_arr[3].toLowerCase().equals(category)) {
+                String new_data = item_arr[0]+","+item_arr[1]+","+item_arr[2]+","+"none"+","+item_arr[4];
                 getItems_data().set(i,new_data);
                 found = true;
             }
@@ -27,16 +28,17 @@ public class categoryModifier extends Product{
     public void addCategory() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter product name or ID:");
-        String product = scanner.nextLine();
+        String input = scanner.nextLine();
+        String product = input.toLowerCase();
         boolean found = false;
         for (int i = 0; i < getItems_data().size(); i++) {
             String[] item_arr = getItems_data().get(i).split(",");
-            if (item_arr[0].equals(product) || item_arr[1].equals(product)) {
+            if (item_arr[0].toLowerCase().equals(product) || item_arr[1].toLowerCase().equals(product)) {
                 found = true;
                 if (item_arr[3].equals("none")) {
                     System.out.println(item_arr[1] + " does not have a category yet, enter a category to add: ");
                     String category = scanner.nextLine();
-                    String new_data = item_arr[0]+","+item_arr[1]+","+item_arr[2]+","+ category;
+                    String new_data = item_arr[0]+","+item_arr[1]+","+item_arr[2]+","+ category+","+item_arr[4];
                     getItems_data().set(i,new_data);
                     System.out.println(item_arr[1] + " is now in category " + category);
                 } else {
@@ -45,7 +47,7 @@ public class categoryModifier extends Product{
             }
         }
         if (!found) {
-                System.out.println("There is no item with the name or ID: " + product);
+            System.out.println("There is no item with the name or ID: " + product);
         }
     }
 }
