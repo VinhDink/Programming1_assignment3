@@ -35,13 +35,7 @@ public class Main {
                     "s3926232, Dinh Quang Vinh\n" +
                     "sXXXXXXX, Student Name\n" +
                     "sXXXXXXX, Student Name\n" +
-                    "s3924871, Nguyen Minh Nhat\n" +
-                    customer_data.get(0) + "\n" +
-                    customer_data.get(1) + "\n" +
-                    customer_data.get(2));
-            String[] arr = customer_data.get(0).split(",");
-            System.out.println(arr[2]);
-
+                    "s3924871, Nguyen Minh Nhat\n" );
             boolean logged_in = true;
             while (logged_in) {
                 System.out.println("Choose the option by entering its index!");
@@ -50,11 +44,7 @@ public class Main {
                 int option1 = scanner.nextInt();
                     switch (option1) {
                         case 1: {
-                            System.out.println("Enter your username");
-                            String username = scanner.next();
-                            System.out.println("Enter your password");
-                            String password = scanner.next();
-                            Customer customer = new Customer(username, password, customer_data);
+                            Customer customer = new Customer(customer_data);
                             if (customer.validateCustomer() == true) {
                                 boolean active1 = true;
                                 while (active1) {
