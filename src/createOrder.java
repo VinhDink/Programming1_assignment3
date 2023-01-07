@@ -66,9 +66,9 @@ public class createOrder extends Product{
                         break;
                     }
                 }
-                System.out.println("");
+                System.out.println();
             } else {
-                System.out.println("Your ID is not initialized, please try again!");
+                System.out.println("Your ID is not available, please try again!");
             }
         } while (!matched);
 
@@ -81,6 +81,12 @@ public class createOrder extends Product{
             for (String a : item_data) {
                 String[] split = a.split(",");
                 if (split[0].equals(ans)) {
+                    //update in stock value of item_data arraylist
+                    int inStock = Integer.parseInt(split[4]);
+                    split[4] = String.valueOf(inStock-1);
+                    item_data.set(item_data.indexOf(a),String.format("%s,%s,%s,%s,%s",
+                            split[0], split[1], split[2], split[3], split[4]));
+
 
                     //display item
                     System.out.println("");
@@ -95,7 +101,7 @@ public class createOrder extends Product{
                     System.out.println("After applying discount, your item is");
                     totalPrice += Double.parseDouble(split[2]) * discount;
                     split[2] = String.valueOf(Double.parseDouble(split[2]) * discount);
-                    item.add(split[1]);
+                    item.add(split[1]);//add item to a list for order_data update
                     for (String i : split) {
                         if (i.equals(split[4])) continue;
                         System.out.printf("%s\t", i);
@@ -122,8 +128,9 @@ public class createOrder extends Product{
 
             //write new order to orders-data arraylist
             int orderId = order_data.size(); //the id of order
+            String semicolonSeparated = item.toString().replace(",", ";"); //change separator
             order_data.add(String.format("%d,%s,%.3f,%s,%s,%s,%s,%s,%s",
-                    orderId, item, totalPrice, customerID, phone, email, address, date, status));
+                    orderId, semicolonSeparated, totalPrice, customerID, phone, email, address, date, status));
             setItems_data(order_data);
             available = true;
 
