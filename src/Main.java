@@ -35,43 +35,57 @@ public class Main {
                     "s3926232, Dinh Quang Vinh\n" +
                     "sXXXXXXX, Student Name\n" +
                     "sXXXXXXX, Student Name\n" +
-                    "s3924871, Nguyen Minh Nhat");
+                    "s3924871, Nguyen Minh Nhat\n" +
+                    customer_data.get(0) + "\n" +
+                    customer_data.get(1) + "\n" +
+                    customer_data.get(2));
+            String[] arr = customer_data.get(0).split(",");
+            System.out.println(arr[2]);
+
             boolean logged_in = true;
             while (logged_in) {
-                System.out.println("Choose the option by enter its index!");
+                System.out.println("Choose the option by entering its index!");
                 System.out.println("1 Login as customer\n" + "2 Register as customer \n" + "3 Login as admin \n"
-                + "4 Exist");
+                + "4 Exit");
                 int option1 = scanner.nextInt();
                     switch (option1) {
-                        case 1:
-                            boolean active1 = true;
-                            while (active1) {
-                                System.out.println("1 View all information\n2 Update information\n3 Check current membership status\n4 List all products \n5 Sort products by price order\n6 Create a new order\n7 View my orders\n8 Exist");
-                                int customerOption1 = scanner.nextInt();
-                                switch (customerOption1) {
-                                    case 5:
-                                        System.out.println("1 Price from low to high\n2 Price from high to low");
-                                        int customerOption2 = scanner.nextInt();
-                                        switch (customerOption2) {
-                                            case 1:
-                                                sortPriceAscending ascending = new sortPriceAscending(items_data);
-                                                ascending.sortPrice();
-                                                break;
-                                            case 2:
-                                                sortPriceDescending descending = new sortPriceDescending(items_data);
-                                                descending.sortPrice();
-                                                break;
-                                        }
-                                        break;
-                                    case 6:
-                                        createOrder order = new createOrder(customer_data, items_data);
-                                        order.createOrder(items_data, orders_data, customer_data);
-                                        break;
-                                    case 8:
-                                        active1 = false;
+                        case 1: {
+                            System.out.println("Enter your username");
+                            String username = scanner.next();
+                            System.out.println("Enter your password");
+                            String password = scanner.next();
+                            Customer customer = new Customer(username, password, customer_data);
+                            if (customer.validateCustomer() == true) {
+                                boolean active1 = true;
+                                while (active1) {
+                                    System.out.println("1 View all information\n2 Update information\n3 Check current membership status\n4 List all products \n5 Sort products by price order\n6 Create a new order\n7 View my orders\n8 Exit");
+                                    int customerOption1 = scanner.nextInt();
+                                    switch (customerOption1) {
+                                        case 5:
+                                            System.out.println("1 Price from low to high\n2 Price from high to low");
+                                            int customerOption2 = scanner.nextInt();
+                                            switch (customerOption2) {
+                                                case 1:
+                                                    sortPriceAscending ascending = new sortPriceAscending(items_data);
+                                                    ascending.sortPrice();
+                                                    break;
+                                                case 2:
+                                                    sortPriceDescending descending = new sortPriceDescending(items_data);
+                                                    descending.sortPrice();
+                                                    break;
+                                            }
+                                            break;
+                                        case 6:
+                                            createOrder order = new createOrder(customer_data, items_data);
+                                            order.createOrder(items_data, orders_data, customer_data);
+                                            break;
+                                        case 8:
+                                            active1 = false;
+                                    }
                                 }
                             }
-                        break;
+                            break;
+                        }
                         case 3: {
                             System.out.println("Enter your username");
                             String username = scanner.next();
