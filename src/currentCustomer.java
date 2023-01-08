@@ -78,8 +78,9 @@ public class currentCustomer extends Customer {
                         valid = false;
                     } else {
                         info_arr.set(1,user);
-//                        String new_data = info_arr.get(0) +","+info_arr[1]+","+arr[2]+","+arr[3]+","
-                        getCustomer_data().set(index, String.valueOf(info_arr));
+                        String new_data = info_arr.get(0) +","+info_arr.get(1)+","+info_arr.get(2)+","+info_arr.get(3)+","+info_arr.get(4)+","+info_arr.get(5)+","+info_arr.get(6)+","+info_arr.get(7);
+                        System.out.println(new_data);
+                        getCustomer_data().set(index, new_data);
                         valid = true;
                         System.out.println("Username updated!");
                     }
