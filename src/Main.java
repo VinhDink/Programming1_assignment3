@@ -204,7 +204,7 @@ public class Main {
                 pw2.close();
                 pw3.close();
             }
-            fileScanner.close();
+//            fileScanner.close();
         }
     }
 }
