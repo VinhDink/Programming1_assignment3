@@ -1,5 +1,6 @@
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class currentCustomer extends Customer {
@@ -39,18 +40,22 @@ public class currentCustomer extends Customer {
         ArrayList<String> user_arr = new ArrayList<String>();
         ArrayList<String> pass_arr = new ArrayList<String>();
         ArrayList<String> name_arr = new ArrayList<String>();
-        ArrayList<Integer> phone_arr = new ArrayList<Integer>();
+        ArrayList<String> phone_arr = new ArrayList<String>();
         ArrayList<String> email_arr = new ArrayList<String>();
         ArrayList<String> address_arr = new ArrayList<String>();
+        ArrayList<String> info_arr = new ArrayList<String>();
         boolean valid = false;
         for (int i = 0; i < getCustomer_data().size(); i++) {
             String[] arr = getCustomer_data().get(i).split(",");
             user_arr.add(arr[1]);
             pass_arr.add(arr[2]);
             name_arr.add(arr[3]);
-            phone_arr.add(Integer.valueOf(arr[4]));
+            phone_arr.add(arr[4]);
             email_arr.add(arr[5]);
             address_arr.add(arr[6]);
+            if (arr[1].equals(username)) {
+                Collections.addAll(info_arr, arr[0],arr[1], arr[2],arr[3],arr[4],arr[5],arr[6],arr[7]);
+            }
         }
         while (!valid) {
             System.out.println("Choose which information in your account to change:");
@@ -63,13 +68,18 @@ public class currentCustomer extends Customer {
             int updateOption = scanner.nextInt();
             switch (updateOption) {
                 case 1:
+                    int index = user_arr.indexOf(username);
+                    System.out.println(info_arr);
                     System.out.println("Enter new username:");
+                    scanner.nextLine();
                     String user = scanner.nextLine();
                     if (user_arr.contains(user)) {
                         System.out.println("Username taken!");
                         valid = false;
                     } else {
-                        getCustomer_data().set(1, user);
+                        info_arr.set(1,user);
+//                        String new_data = info_arr.get(0) +","+info_arr[1]+","+arr[2]+","+arr[3]+","
+                        getCustomer_data().set(index, String.valueOf(info_arr));
                         valid = true;
                         System.out.println("Username updated!");
                     }
