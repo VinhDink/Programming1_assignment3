@@ -74,10 +74,18 @@ public class Main {
                                             }
                                             break;
                                         case 6:
+                                            searchProduct search = new searchProduct(items_data);
+                                            search.search(items_data);
+                                            break;
+                                        case 7:
                                             createOrder order = new createOrder(customer_data, items_data);
                                             order.createOrder(items_data, orders_data, customer_data);
                                             break;
                                         case 8:
+                                            viewOrder order1 = new viewOrder(orders_data);
+                                            order1.view(orders_data);
+                                            break;
+                                        case 9:
                                             active1 = false;
                                     }
                                 }
@@ -204,7 +212,7 @@ public class Main {
                 pw2.close();
                 pw3.close();
             }
-//            fileScanner.close();
+            fileScanner.close();
         }
     }
 }
