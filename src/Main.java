@@ -55,6 +55,10 @@ public class Main {
                                     System.out.println("1 View all information\n2 Update information\n3 Check current membership status\n4 List all products \n5 Sort products by price order\n6 Create a new order\n7 View my orders\n8 Exit");
                                     int customerOption1 = scanner.nextInt();
                                     switch (customerOption1) {
+                                        case 1:
+                                            currentCustomer current = new currentCustomer(customer_data,username,password);
+                                            current.getCustomerInfo();
+                                            break;
                                         case 5:
                                             System.out.println("1 Price from low to high\n2 Price from high to low");
                                             int customerOption2 = scanner.nextInt();

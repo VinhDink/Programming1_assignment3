@@ -5,26 +5,22 @@ import java.util.Scanner;
 
 public class Customer {
     private ArrayList<String> customer_data;
-    private String username;
+    protected String username;
     private String password;
     //Constructor
-    public Customer( ArrayList<String> customer_data,String username, String password) {
-
+    public Customer(ArrayList<String> customer_data,String username,String password) {
         this.customer_data = customer_data;
         this.username = username;
         this.password = password;
     }
 
     //Getter
-
     public ArrayList<String> getCustomer_data() {
         return customer_data;
     }
-
     public String getUsername() {
         return username;
     }
-
     public String getPassword() {
         return password;
     }
@@ -33,9 +29,11 @@ public class Customer {
     public void setCustomer_data(ArrayList<String> customer_data) {
         this.customer_data = customer_data;
     }
-
     public void setUsername(String username) {
         this.username = username;
+    }
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public boolean validateCustomer() {
