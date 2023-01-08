@@ -44,7 +44,11 @@ public class Main {
                 int option1 = scanner.nextInt();
                     switch (option1) {
                         case 1: {
-                            Customer customer = new Customer(customer_data);
+                            System.out.println("Please enter your username!");
+                            String username = scanner.next();
+                            System.out.println("Please enter your password!");
+                            String password = scanner.next();
+                            Customer customer = new Customer(customer_data,username,password);
                             if (customer.validateCustomer() == true) {
                                 boolean active1 = true;
                                 while (active1) {
@@ -111,7 +115,7 @@ public class Main {
                                             ords.viewOrdersInfo();
                                             break;
                                         case 3:
-                                            viewMembers mem = new viewMembers(customer_data);
+                                            viewMembers mem = new viewMembers(customer_data,username,password);
                                             mem.viewCustomerInfo();
                                             break;
                                         case 4:
@@ -135,7 +139,7 @@ public class Main {
                                             ord.changeStatus();
                                             break;
                                         case 9:
-                                            removeCustomer remove = new removeCustomer(customer_data);
+                                            removeCustomer remove = new removeCustomer(customer_data,username,password);
                                             remove.remove();
                                             break;
                                         case 10:

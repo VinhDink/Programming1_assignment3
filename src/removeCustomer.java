@@ -3,8 +3,9 @@ import java.util.Scanner;
 
 public class removeCustomer extends Customer{
 
-    public removeCustomer(ArrayList<String> customer_data) {
-        super(customer_data);
+
+    public removeCustomer(ArrayList<String> customer_data, String username, String password) {
+        super(customer_data, username, password);
     }
 
     public void remove() {
