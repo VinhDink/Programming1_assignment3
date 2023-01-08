@@ -5,8 +5,9 @@ import java.util.Scanner;
 
 public class viewMembers extends Customer{
 
-    public viewMembers(ArrayList<String> customer_data) {
-        super(customer_data);
+
+    public viewMembers(ArrayList<String> customer_data, String username, String password) {
+        super(customer_data, username, password);
     }
 
     public void viewCustomerInfo() {

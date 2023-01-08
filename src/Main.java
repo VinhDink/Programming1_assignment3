@@ -35,59 +35,55 @@ public class Main {
                     "s3926232, Dinh Quang Vinh\n" +
                     "sXXXXXXX, Student Name\n" +
                     "sXXXXXXX, Student Name\n" +
-                    "s3924871, Nguyen Minh Nhat");
+                    "s3924871, Nguyen Minh Nhat\n" );
             boolean logged_in = true;
             while (logged_in) {
-                System.out.println("Choose the option by enter its index!");
+                System.out.println("Choose the option by entering its index!");
                 System.out.println("1 Login as customer\n" + "2 Register as customer \n" + "3 Login as admin \n"
-                + "4 Exist");
+                + "4 Exit");
                 int option1 = scanner.nextInt();
                     switch (option1) {
-                        case 1:
-                            boolean active1 = true;
-                            while (active1) {
-                                System.out.println("1 View all information\n" +
-                                        "2 Update information\n" +
-                                        "3 Check current membership status\n" +
-                                        "4 List all products \n" +
-                                        "5 Sort products by price order\n" +
-                                        "6 Search products by category and price\n" +
-                                        "7 Create a new order\n" +
-                                        "8 View all my orders and order information\n" +
-                                        "9 Exist");
-                                int customerOption1 = scanner.nextInt();
-                                switch (customerOption1) {
-                                    case 5:
-                                        System.out.println("1 Price from low to high\n2 Price from high to low");
-                                        int customerOption2 = scanner.nextInt();
-                                        switch (customerOption2) {
-                                            case 1:
-                                                sortPriceAscending ascending = new sortPriceAscending(items_data);
-                                                ascending.sortPrice();
-                                                break;
-                                            case 2:
-                                                sortPriceDescending descending = new sortPriceDescending(items_data);
-                                                descending.sortPrice();
-                                                break;
-                                        }
-                                        break;
-                                    case 6:
-                                        searchProduct search = new searchProduct(items_data);
-                                        search.search(items_data);
-                                        break;
-                                    case 7:
-                                        createOrder order = new createOrder(customer_data, items_data);
-                                        order.createOrder(items_data, orders_data, customer_data);
-                                        break;
-                                    case 8:
-                                        viewOrder order1 = new viewOrder(orders_data);
-                                        order1.view(orders_data);
-                                        break;
-                                    case 9:
-                                        active1 = false;
+                        case 1: {
+                            System.out.println("Please enter your username!");
+                            String username = scanner.next();
+                            System.out.println("Please enter your password!");
+                            String password = scanner.next();
+                            Customer customer = new Customer(customer_data,username,password);
+                            if (customer.validateCustomer() == true) {
+                                boolean active1 = true;
+                                while (active1) {
+                                    System.out.println("1 View all information\n2 Update information\n3 Check current membership status\n4 List all products \n5 Sort products by price order\n6 Create a new order\n7 View my orders\n8 Exit");
+                                    int customerOption1 = scanner.nextInt();
+                                    switch (customerOption1) {
+                                        case 1:
+                                            currentCustomer current = new currentCustomer(customer_data,username,password);
+                                            current.getCustomerInfo();
+                                            break;
+                                        case 5:
+                                            System.out.println("1 Price from low to high\n2 Price from high to low");
+                                            int customerOption2 = scanner.nextInt();
+                                            switch (customerOption2) {
+                                                case 1:
+                                                    sortPriceAscending ascending = new sortPriceAscending(items_data);
+                                                    ascending.sortPrice();
+                                                    break;
+                                                case 2:
+                                                    sortPriceDescending descending = new sortPriceDescending(items_data);
+                                                    descending.sortPrice();
+                                                    break;
+                                            }
+                                            break;
+                                        case 6:
+                                            createOrder order = new createOrder(customer_data, items_data);
+                                            order.createOrder(items_data, orders_data, customer_data);
+                                            break;
+                                        case 8:
+                                            active1 = false;
+                                    }
                                 }
                             }
                             break;
+                        }
                         case 3: {
                             System.out.println("Enter your username");
                             String username = scanner.next();
@@ -111,9 +107,7 @@ public class Main {
                                             "\n12 See most popular product" +
                                             "\n13 See least popular product" +
                                             "\n14 See all order in a particular day" +
-                                            "\n15 See customer with the most pay" +
-                                            "\n16 See total numbers of all membership" +
-                                            "\n17 Return");
+                                            "\n15 Return");
                                     int option2 = scanner.nextInt();
                                     switch (option2) {
                                         case 1:
@@ -125,7 +119,7 @@ public class Main {
                                             ords.viewOrdersInfo();
                                             break;
                                         case 3:
-                                            viewMembers mem = new viewMembers(customer_data);
+                                            viewMembers mem = new viewMembers(customer_data,username,password);
                                             mem.viewCustomerInfo();
                                             break;
                                         case 4:
@@ -149,7 +143,7 @@ public class Main {
                                             ord.changeStatus();
                                             break;
                                         case 9:
-                                            removeCustomer remove = new removeCustomer(customer_data);
+                                            removeCustomer remove = new removeCustomer(customer_data,username,password);
                                             remove.remove();
                                             break;
                                         case 10:
@@ -173,14 +167,6 @@ public class Main {
                                             ord2.executedOrder();
                                             break;
                                         case 15:
-                                            customerPay pay = new customerPay(orders_data);
-                                            pay.mostPay();
-                                            break;
-                                        case 16:
-                                            membershipList mem2 = new membershipList(customer_data);
-                                            mem2.showList();
-                                            break;
-                                        case 17:
                                             active = false;
                                             logged_in = true;
                                     }
@@ -218,7 +204,7 @@ public class Main {
                 pw2.close();
                 pw3.close();
             }
-            fileScanner.close();
+//            fileScanner.close();
         }
     }
 }

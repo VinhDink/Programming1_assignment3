@@ -3,8 +3,10 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class membershipList extends Customer{
-    public membershipList(ArrayList<String> customer_data) {
-        super(customer_data);
+
+
+    public membershipList(ArrayList<String> customer_data, String username, String password) {
+        super(customer_data, username, password);
     }
 
     public void showList() {
