@@ -52,12 +52,30 @@ public class Main {
                             if (customer.validateCustomer() == true) {
                                 boolean active1 = true;
                                 while (active1) {
-                                    System.out.println("1 View all information\n2 Update information\n3 Check current membership status\n4 List all products \n5 Sort products by price order\n6 Create a new order\n7 View my orders\n8 Exit");
+                                    currentCustomer current = new currentCustomer(customer_data,username,password);
+                                    System.out.println("1 View all information" +
+                                            "\n2 Update information" +
+                                            "\n3 Check current membership status" +
+                                            "\n4 List all products" +
+                                            "\n5 Sort products by price order" +
+                                            "\n6 Create a new order" +
+                                            "\n7 View my orders" +
+                                            "\n9 Update membership status" +
+                                            "\n10 Exit");
                                     int customerOption1 = scanner.nextInt();
                                     switch (customerOption1) {
                                         case 1:
-                                            currentCustomer current = new currentCustomer(customer_data,username,password);
-                                            current.getCustomerInfo();
+                                            current.view();
+                                            break;
+                                        case 2:
+                                            current.update();
+                                            break;
+                                        case 3:
+                                            current.checkMembership();
+                                            break;
+                                        case 4:
+                                            viewProducts prods = new viewProducts(items_data);
+                                            prods.viewProdsInfo();
                                             break;
                                         case 5:
                                             System.out.println("1 Price from low to high\n2 Price from high to low");
@@ -86,10 +104,19 @@ public class Main {
                                             order1.view(orders_data);
                                             break;
                                         case 9:
+                                            Membership membership = new Membership(customer_data,orders_data,username);
+                                            membership.updateMembership();
+                                            break;
+                                        case 10:
                                             active1 = false;
                                     }
                                 }
                             }
+                            break;
+                        }
+                        case 2: {
+                            addCustomer newCustomer = new addCustomer(customer_data, null, null);
+                            newCustomer.add();
                             break;
                         }
                         case 3: {

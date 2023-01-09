@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Customer {
     private ArrayList<String> customer_data;
     protected String username;
-    private String password;
+    protected String password;
     //Constructor
     public Customer(ArrayList<String> customer_data,String username,String password) {
         this.customer_data = customer_data;
@@ -53,6 +53,4 @@ public class Customer {
         } else System.out.println("Wrong username!");
         return false;
     }
-
-
 }

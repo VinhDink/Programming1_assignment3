@@ -6,4 +6,4 @@
 6,PC,90.000,customer_id3,123456789,email@gmail.com,123 my dinh,2023-01-01,paid
 7,Iphone,20.000,customer_id2,123456789,email@gmail.com,123 my dinh,2023-01-01,unpaid
 7,[Harman Kardon],46.550,customer_id1,123456789,email@gmail.com,123 cau dien,2023-01-02,unpaid
-8,[Harman Kardon, Macbook Pro 15],54.625,customer_id1,123456789,email@gmail.com,123 cau dien,2023-01-02,unpaid
+8,[Harman Kardon; Macbook Pro 15],54.625,customer_id1,123456789,email@gmail.com,123 cau dien,2023-01-02,unpaid
