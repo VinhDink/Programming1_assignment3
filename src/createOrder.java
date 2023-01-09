@@ -3,11 +3,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class createOrder extends Product{
-    public ArrayList<String> customer_data;
-    public createOrder(ArrayList<String> customer_data, ArrayList<String> items_data) {
-        super(items_data);
-        this.customer_data = customer_data;
+public class createOrder extends Customer{
+    public createOrder(ArrayList<String> customer_data, String username, String password) {
+        super(customer_data, username, password);
     }
 
     public void createOrder(ArrayList<String> item_data, ArrayList<String> order_data, ArrayList<String> customer_data)
@@ -22,12 +20,11 @@ public class createOrder extends Product{
         ArrayList<String> item = new ArrayList<>();
 
         //view customer info and membership
-        System.out.println("Please enter your customerID:");
+        String customerUsername = getUsername();
         do {
-            String ans = sc.nextLine();
             for (String i : customer_data) {
                 String[] split = i.split(",");
-                if (split[0].equals(ans)) {
+                if (split[1].equals(customerUsername)) {
                     customerID = split[0];
                     phone = split[4];
                     email = split[5];
@@ -132,7 +129,6 @@ public class createOrder extends Product{
             String semicolonSeparated = item.toString().replace(",", ";"); //change separator
             order_data.add(String.format("%d,%s,%.3f,%s,%s,%s,%s,%s,%s",
                     orderId, semicolonSeparated, totalPrice, customerID, phone, email, address, date, status));
-            setItems_data(order_data);
             available = true;
 
             if (available) {

@@ -96,12 +96,12 @@ public class Main {
                                             search.search(items_data);
                                             break;
                                         case 7:
-                                            createOrder order = new createOrder(customer_data, items_data);
+                                            createOrder order = new createOrder(customer_data, username, password);
                                             order.createOrder(items_data, orders_data, customer_data);
                                             break;
                                         case 8:
-                                            viewOrder order1 = new viewOrder(orders_data);
-                                            order1.view(orders_data);
+                                            viewOrder order1 = new viewOrder(customer_data, username, password);
+                                            order1.view(orders_data, customer_data);
                                             break;
                                         case 9:
                                             Membership membership = new Membership(customer_data,orders_data,username);

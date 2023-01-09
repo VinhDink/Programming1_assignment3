@@ -1,23 +1,29 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class viewOrder extends Order{
-    public viewOrder(ArrayList<String> orders_data) {
-        super(orders_data);
+public class viewOrder extends Customer{
+    public viewOrder(ArrayList<String> customer_data, String username, String password) {
+        super(customer_data, username, password);
     }
 
-    public void view(ArrayList<String> order_data) {
+    public void view(ArrayList<String> order_data, ArrayList<String> customer_data) {
         Scanner sc = new Scanner(System.in);
         ArrayList<String> lst = new ArrayList<>();
+        String customerID = null;
+        String customerUsername = getUsername();
 
 
-        System.out.println("Please enter your customer ID:");
-        String customerID = sc.nextLine();
+        for (String i : customer_data) {
+            String[] split = i.split(",");
+            if (customerUsername.equals(split[1])) {
+                customerID = split[0];
+            }
+        }
         System.out.printf("%-15s%-30s%-10s%-20s%-10s\n",
                 "Order ID", "Title", "Price", "Order date", "Status");
         for (String i : order_data) {
             String[] split = i.split(",");
-            if (customerID.equals(split[3])) {
+            if (customerID != null && customerID.equals(split[3])) {
                 System.out.printf("%-15s%-30s%-10s%-20s%-10s\n",
                         split[0], split[1], split[2], split[7], split[8]);
                 lst.add(String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s",
