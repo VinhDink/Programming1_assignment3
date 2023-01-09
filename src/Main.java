@@ -58,8 +58,9 @@ public class Main {
                                             "\n3 Check current membership status" +
                                             "\n4 List all products" +
                                             "\n5 Sort products by price order" +
-                                            "\n6 Create a new order" +
-                                            "\n7 View my orders" +
+                                            "\n6 View products by category and price range" +
+                                            "\n7 Create a new order" +
+                                            "\n8 View my orders" +
                                             "\n9 Update membership status" +
                                             "\n10 Exit");
                                     int customerOption1 = scanner.nextInt();

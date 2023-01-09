@@ -11,7 +11,7 @@ public class viewOrder extends Customer{
         ArrayList<String> lst = new ArrayList<>();
         String customerID = null;
         String customerUsername = getUsername();
-
+        StringBuilder title = new StringBuilder();
 
         for (String i : customer_data) {
             String[] split = i.split(",");
@@ -19,16 +19,27 @@ public class viewOrder extends Customer{
                 customerID = split[0];
             }
         }
-        System.out.printf("%-15s%-30s%-10s%-20s%-10s\n",
+        System.out.printf("%-15s%-30s%-15s%-20s%-10s\n",
                 "Order ID", "Title", "Price", "Order date", "Status");
         for (String i : order_data) {
-            String[] split = i.split(",");
+            String[] split = i.split(",");String a = split[1].replace("[", "");
+            String b = a.replace("]", "");
+            String[] split1 = b.split(";");
+            if (split1.length > 2) {
+                title.append(String.format("%s, %s,...", split1[0], split1[1]));
+            } else if (split1.length == 2){
+                title.append(String.format("%s, %s", split1[0], split1[1]));
+            } else {
+                title.append(String.format("%s", split1[0]));
+            }
             if (customerID != null && customerID.equals(split[3])) {
-                System.out.printf("%-15s%-30s%-10s%-20s%-10s\n",
-                        split[0], split[1], split[2], split[7], split[8]);
+                System.out.printf("%-15s%-30s%-15s%-20s%-10s\n",
+                        split[0], title, split[2], split[7], split[8]);
+                title.delete(0, title.length());
                 lst.add(String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s",
                         split[0], split[1], split[2], split[3], split[4], split[5], split[6], split[7], split[8]));
             }
+            title.delete(0, title.length());
         }
         if (lst.size() == 0) {
             System.out.println("No order to appear hear!");

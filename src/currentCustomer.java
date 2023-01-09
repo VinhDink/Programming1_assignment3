@@ -69,7 +69,11 @@ public class currentCustomer extends Customer {
             switch (updateOption) {
                 case 1:
                     int usernameIndex = user_arr.indexOf(extract().get(1));
-                    System.out.println(info_arr);
+                    System.out.println("Your current information:");
+                    for (String i : info_arr) {
+                        System.out.printf("%s\t", i);
+                    }
+                    System.out.println();
                     System.out.println("Enter new username:");
                     scanner.nextLine();
                     String user = scanner.nextLine();
@@ -78,7 +82,9 @@ public class currentCustomer extends Customer {
                         valid = false;
                     } else {
                         info_arr.set(1,user);
-                        String new_data = info_arr.get(0) +","+info_arr.get(1)+","+info_arr.get(2)+","+info_arr.get(3)+","+info_arr.get(4)+","+info_arr.get(5)+","+info_arr.get(6)+","+info_arr.get(7);
+                        String new_data = info_arr.get(0) +"\t"+info_arr.get(1)+"\t"+info_arr.get(2)+"\t"+info_arr.get(3)
+                                +"\t"+info_arr.get(4)+"\t"+info_arr.get(5)+"\t"+info_arr.get(6)+"\t"+info_arr.get(7);
+                        System.out.println("Your new information:");
                         System.out.println(new_data);
                         getCustomer_data().set(usernameIndex, new_data);
                         valid = true;
@@ -87,12 +93,18 @@ public class currentCustomer extends Customer {
                     break;
                 case 2:
                     int passwordIndex = pass_arr.indexOf(extract().get(2));
-                    System.out.println(info_arr);
+                    System.out.println("Your current information:");
+                    for (String i : info_arr) {
+                        System.out.printf("%s\t", i);
+                    }
+                    System.out.println();
                     System.out.println("Enter new password:");
                     scanner.nextLine();
                     String pass = scanner.nextLine();
                     info_arr.set(2,pass);
-                    String new_pass_data = info_arr.get(0) +","+info_arr.get(1)+","+info_arr.get(2)+","+info_arr.get(3)+","+info_arr.get(4)+","+info_arr.get(5)+","+info_arr.get(6)+","+info_arr.get(7);
+                    String new_pass_data = info_arr.get(0) +"\t"+info_arr.get(1)+"\t"+info_arr.get(2)+"\t"+info_arr.get(3)
+                            +"\t"+info_arr.get(4)+"\t"+info_arr.get(5)+"\t"+info_arr.get(6)+"\t"+info_arr.get(7);
+                    System.out.println("Your new information:");
                     System.out.println(new_pass_data);
                     getCustomer_data().set(passwordIndex, new_pass_data);
                     valid = true;
@@ -100,12 +112,18 @@ public class currentCustomer extends Customer {
                     break;
                 case 3:
                     int nameIndex = name_arr.indexOf(extract().get(3));
-                    System.out.println(info_arr);
+                    System.out.println("Your current information:");
+                    for (String i : info_arr) {
+                        System.out.printf("%s\t", i);
+                    }
+                    System.out.println();
                     System.out.println("Enter new full name:");
                     scanner.nextLine();
                     String name = scanner.nextLine();
                     info_arr.set(3,name);
-                    String new_name_data = info_arr.get(0) +","+info_arr.get(1)+","+info_arr.get(2)+","+info_arr.get(3)+","+info_arr.get(4)+","+info_arr.get(5)+","+info_arr.get(6)+","+info_arr.get(7);
+                    String new_name_data = info_arr.get(0) +"\t"+info_arr.get(1)+"\t"+info_arr.get(2)+"\t"+info_arr.get(3)
+                            +"\t"+info_arr.get(4)+"\t"+info_arr.get(5)+"\t"+info_arr.get(6)+"\t"+info_arr.get(7);
+                    System.out.println("Your new information:");
                     System.out.println(new_name_data);
                     getCustomer_data().set(nameIndex, new_name_data);
                     valid = true;
@@ -113,12 +131,18 @@ public class currentCustomer extends Customer {
                     break;
                 case 4:
                     int phoneIndex = phone_arr.indexOf(extract().get(4));
-                    System.out.println(info_arr);
+                    System.out.println("Your current information:");
+                    for (String i : info_arr) {
+                        System.out.printf("%s\t", i);
+                    }
+                    System.out.println();
                     System.out.println("Enter new phone number:");
                     scanner.nextLine();
                     String phone = scanner.nextLine();
                     info_arr.set(4,phone);
-                    String new_phone_data = info_arr.get(0) +","+info_arr.get(1)+","+info_arr.get(2)+","+info_arr.get(3)+","+info_arr.get(4)+","+info_arr.get(5)+","+info_arr.get(6)+","+info_arr.get(7);
+                    String new_phone_data = info_arr.get(0) +"\t"+info_arr.get(1)+"\t"+info_arr.get(2)+"\t"+info_arr.get(3)
+                            +"\t"+info_arr.get(4)+"\t"+info_arr.get(5)+"\t"+info_arr.get(6)+"\t"+info_arr.get(7);
+                    System.out.println("Your new information:");
                     System.out.println(new_phone_data);
                     getCustomer_data().set(phoneIndex, new_phone_data);
                     valid = true;
@@ -126,12 +150,18 @@ public class currentCustomer extends Customer {
                     break;
                 case 5:
                     int emailIndex = email_arr.indexOf(extract().get(5));
-                    System.out.println(info_arr);
+                    System.out.println("Your current information:");
+                    for (String i : info_arr) {
+                        System.out.printf("%s\t", i);
+                    }
+                    System.out.println();
                     System.out.println("Enter new email:");
                     scanner.nextLine();
                     String email = scanner.nextLine();
                     info_arr.set(5,email);
-                    String new_email_data = info_arr.get(0) +","+info_arr.get(1)+","+info_arr.get(2)+","+info_arr.get(3)+","+info_arr.get(4)+","+info_arr.get(5)+","+info_arr.get(6)+","+info_arr.get(7);
+                    String new_email_data = info_arr.get(0) +"\t"+info_arr.get(1)+"\t"+info_arr.get(2)+"\t"+info_arr.get(3)
+                            +"\t"+info_arr.get(4)+"\t"+info_arr.get(5)+"\t"+info_arr.get(6)+"\t"+info_arr.get(7);
+                    System.out.println("Your new information:");
                     System.out.println(new_email_data);
                     getCustomer_data().set(emailIndex, new_email_data);
                     valid = true;
@@ -139,12 +169,18 @@ public class currentCustomer extends Customer {
                     break;
                 case 6:
                     int addressIndex = address_arr.indexOf(extract().get(6));
-                    System.out.println(info_arr);
+                    System.out.println("Your current information:");
+                    for (String i : info_arr) {
+                        System.out.printf("%s\t", i);
+                    }
+                    System.out.println();
                     System.out.println("Enter new home address:");
                     scanner.nextLine();
                     String address = scanner.nextLine();
                     info_arr.set(6,address);
-                    String new_home_data = info_arr.get(0) +","+info_arr.get(1)+","+info_arr.get(2)+","+info_arr.get(3)+","+info_arr.get(4)+","+info_arr.get(5)+","+info_arr.get(6)+","+info_arr.get(7);
+                    String new_home_data = info_arr.get(0) +"\t"+info_arr.get(1)+"\t"+info_arr.get(2)+"\t"+info_arr.get(3)
+                            +"\t"+info_arr.get(4)+"\t"+info_arr.get(5)+"\t"+info_arr.get(6)+"\t"+info_arr.get(7);
+                    System.out.println("Your new information:");
                     System.out.println(new_home_data);
                     getCustomer_data().set(addressIndex, new_home_data);
                     valid = true;

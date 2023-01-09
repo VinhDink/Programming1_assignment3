@@ -41,6 +41,7 @@ public class addProducts extends Product {
                 valid = false;
             } else {
                 getItems_data().add("item_" + index+ "," + name + "," + price + "," + category + "," + amount);
+                System.out.printf("You just added item: item_%s\t%s\t%.2f\t%s\t%d\n", index, name, price, category, amount);
                 valid = true;
             }
         }

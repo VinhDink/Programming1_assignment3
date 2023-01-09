@@ -29,6 +29,7 @@ public class searchProduct extends Product{
                 System.out.printf("Our products of %s:\n", answer);
                 System.out.printf("%-15s%-30s%-10s%-15s%-10s\n",
                         "ID", "Title", "Price", "Category", "In Stock");
+                System.out.println("-----------------------------------------------------------------------------");
                 for (String i : item_data) {
                     if (i.toLowerCase().contains(answer.toLowerCase())) {
                         String[] split = i.split(",");
@@ -50,6 +51,7 @@ public class searchProduct extends Product{
             System.out.printf("Our products of %s, from %.3f to %.3f:\n", answer, low, high);
             System.out.printf("%-15s%-30s%-10s%-15s%-10s\n",
                     "ID", "Title", "Price", "Category", "In Stock");
+            System.out.println("-----------------------------------------------------------------------------");
             for (String i : item) {
                 String[] split = i.split(",");
                 double price = Double.parseDouble(split[2]);
@@ -66,6 +68,7 @@ public class searchProduct extends Product{
             System.out.printf("Our products from %.3f to %.3f:\n", low, high);
             System.out.printf("%-15s%-30s%-10s%-15s%-10s\n",
                     "ID", "Title", "Price", "Category", "In Stock");
+            System.out.println("--------------------------------------------------------------------------------");
             for (String i : item_data) {
                 String[] split = i.split(",");
                 double price = Double.parseDouble(split[2]);

@@ -55,6 +55,7 @@ public class createOrder extends Customer{
                 //print products
                 System.out.println("\nOUR PRODUCT");
                 System.out.printf("%-15s%-30s%-10s%-15s%-10s\n", "ID", "Title", "Price", "Category", "In Stock");
+                System.out.println("--------------------------------------------------------------------------------");
                 for (String i : item_data) {
                     String[] split = i.split(",");
                     for (String a : split) {
