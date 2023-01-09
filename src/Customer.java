@@ -53,6 +53,4 @@ public class Customer {
         } else System.out.println("Wrong username!");
         return false;
     }
-
-
 }

@@ -37,7 +37,7 @@ public class addCustomer extends Customer {
                 String email = scanner.nextLine();
                 System.out.println("Enter your home address:");
                 String address = scanner.nextLine();
-                getCustomer_data().add("customer_id" + index + "," + user + "," + pass + "," + name + "," + phone + "," + email + "," + address+","+"");
+                getCustomer_data().add("customer_id" + index + "," + user + "," + pass + "," + name + "," + phone + "," + email + "," + address+","+"Basic");
                 System.out.println("New customer account added!");
                 valid = true;
             }

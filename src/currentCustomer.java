@@ -152,7 +152,6 @@ public class currentCustomer extends Customer {
             }
         }
     }
-
     public void checkMembership() {
         System.out.println("Your membership status: " + extract().get(7));
     }
