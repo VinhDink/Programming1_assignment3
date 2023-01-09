@@ -53,7 +53,7 @@ public class Main {
                                 boolean active1 = true;
                                 while (active1) {
                                     currentCustomer current = new currentCustomer(customer_data,username,password);
-                                    System.out.println("1 View all information\n2 Update information\n3 Check current membership status\n4 List all products \n5 Sort products by price order\n6 Create a new order\n7 View my orders\n8 Exit");
+                                    System.out.println("1 View all information\n2 Update information\n3 Check current membership status\n4 List all products \n5 Sort products by price order\n6 Create a new order\n7 View my orders\n9 Exit");
                                     int customerOption1 = scanner.nextInt();
                                     switch (customerOption1) {
                                         case 1:
