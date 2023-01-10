@@ -70,6 +70,8 @@ public class Main {
                                             break;
                                         case 2:
                                             current.update();
+                                            System.out.println(customer_data);
+                                            System.out.println(items_data);
                                             break;
                                         case 3:
                                             current.checkMembership();
@@ -143,7 +145,8 @@ public class Main {
                                             "\n12 See most popular product" +
                                             "\n13 See least popular product" +
                                             "\n14 See all order in a particular day" +
-                                            "\n15 Return");
+                                            "\n15 See list of membership" +
+                                            "\n16 Return");
                                     int option2 = scanner.nextInt();
                                     switch (option2) {
                                         case 1:
@@ -203,6 +206,9 @@ public class Main {
                                             ord2.executedOrder();
                                             break;
                                         case 15:
+                                            membershipList member = new membershipList(customer_data,"","");
+                                            member.showList();
+                                        case 16:
                                             active = false;
                                             logged_in = true;
                                     }
