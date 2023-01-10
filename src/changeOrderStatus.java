@@ -1,7 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class changeOrderStatus extends Order {
@@ -20,7 +17,7 @@ public class changeOrderStatus extends Order {
         while (!valid) {
             System.out.println("Enter the order ID: ");
             String ID = scanner.nextLine();
-            if (id_arr.contains(ID) == false) {
+            if (!id_arr.contains(ID)) {
                 System.out.println("No ID matched ");
                 valid = false;
             }

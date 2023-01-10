@@ -1,7 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class getOrderInfo extends Order {
@@ -24,7 +21,7 @@ public class getOrderInfo extends Order {
                     order_arr.add(getOrders_data().get(i));
                 }
             }
-            if (name_arr.contains(ID) == false) {
+            if (!name_arr.contains(ID)) {
                 System.out.println("No ID matched ");
                 valid = false;
             } else {

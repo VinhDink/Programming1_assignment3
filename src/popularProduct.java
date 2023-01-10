@@ -44,8 +44,9 @@ public class popularProduct extends Order{
         }
         String[] arr = new String[item_list.size()];
         arr = item_list.toArray(arr);
+        System.out.println(item_list);
 
-        String theleast = "";
+        String theLeast = "";
         int sale = 1;
         for (String s : arr) {
             int count = 0;
@@ -59,10 +60,10 @@ public class popularProduct extends Order{
             }
             if (sale >= total - count) {
                 sale = total - count;
-                theleast = s;
+                theLeast = s;
             }
 
         }
-        System.out.println(theleast + " is the least popular product with only " + sale + " order(s)");
+        System.out.println(theLeast + " is the least popular product with only " + sale + " order(s)");
     }
 }
