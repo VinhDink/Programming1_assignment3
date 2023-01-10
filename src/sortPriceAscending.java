@@ -33,14 +33,14 @@ public class sortPriceAscending extends Product{
         }
 
         System.out.printf("PRICE FROM LOWEST TO HIGHEST:\n\n%-15s%-30s%-10s%-5s\n" +
-                "----------------------------------------------------------------",
+                "----------------------------------------------------------------\n",
                 "ID", "Title", "Price", "Category");
 
         for (String i : stringPriceList) {
             for (String j : itemList) {
                 if (i.equals(j)) {
                     int a = itemList.indexOf(j);
-                    System.out.printf("\n%-15s%-30s%-10s%-5s\n", itemList.get(a - 2), itemList.get(a - 1),
+                    System.out.printf("%-15s%-30s%-10s%-5s\n", itemList.get(a - 2), itemList.get(a - 1),
                             itemList.get(a), itemList.get(a + 1));
                 }
             }

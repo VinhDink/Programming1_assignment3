@@ -7,3 +7,4 @@
 7,Iphone,20000000,customer_id2,123456789,email@gmail.com,123 my dinh,2023-01-01,unpaid
 7,[Harman Kardon],46550000,customer_id1,123456789,email@gmail.com,123 cau dien,2023-01-02,unpaid
 8,[Harman Kardon; Macbook Pro 15],54625000,customer_id1,123456789,email@gmail.com,123 cau dien,2023-01-02,paid
+9,[TV Sony; Harman Kardon],17041.650,customer_id2,11111111,email2@gmail.com,25 xa dan,2023-01-09,paid

@@ -58,8 +58,9 @@ public class Main {
                                             "\n3 Check current membership status" +
                                             "\n4 List all products" +
                                             "\n5 Sort products by price order" +
-                                            "\n6 Create a new order" +
-                                            "\n7 View my orders" +
+                                            "\n6 View products by category and price range" +
+                                            "\n7 Create a new order" +
+                                            "\n8 View my orders" +
                                             "\n9 Update membership status" +
                                             "\n10 Exit");
                                     int customerOption1 = scanner.nextInt();
@@ -96,12 +97,12 @@ public class Main {
                                             search.search(items_data);
                                             break;
                                         case 7:
-                                            createOrder order = new createOrder(customer_data, items_data);
+                                            createOrder order = new createOrder(customer_data, username, password);
                                             order.createOrder(items_data, orders_data, customer_data);
                                             break;
                                         case 8:
-                                            viewOrder order1 = new viewOrder(orders_data);
-                                            order1.view(orders_data);
+                                            viewOrder order1 = new viewOrder(customer_data, username, password);
+                                            order1.view(orders_data, customer_data);
                                             break;
                                         case 9:
                                             Membership membership = new Membership(customer_data,orders_data,username);
