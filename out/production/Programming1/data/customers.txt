@@ -1,6 +1,9 @@
-customer_id1,customer1,password1,Dinh Quang Vinh,123456789,email@gmail.com,123 cau dien,Platinum
+customer_id7,VinhD1nk,vinh2542003,Vinh Dinh,0963639918,vinhduaws@gmail.com,A1 vinhomes,Platinum
 customer_id2,customer2,password2,Nguyen Van A,11111111,email2@gmail.com,25 xa dan,Basic
-customer_id3,customer3,password3,Nguyen Van B,22222222,email3@gmail.com,84 My Dinh,Platinum
+customer_id7,VinhD1nk,vinh2542003,Vinh Dinh,0963639918,s3926232@rmit.edu.vn,131 5/8,Platinum
 customer_id4,customer4,password4,Le Hoang D,33333333,email4@yahoo.com,520 Kim Ma,Gold
 customer_id5,Customer5,password5,abc,123123,abc@gmail.com,123 xyz,Basic
 customer_id6,customer6,password6,asd,321312,dasd,dasd,Basic
+customer_id7,VinhD1nk,vinh2542003,Vinh Dinh,0963639918,vinhduaws@gmail.com,A1 vinhomes,Platinum
+customer_id8,Nhim,Nhim@2018,Nhim Dinh,123345,Nhim@gmail.com,65 tran nhat duat,Basic
+customer_id9,Nhim@2018,matkhau,Nhim Dinh,913265958,Nhim@gmail.com,65 tran nhat duat,Basic

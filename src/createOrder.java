@@ -120,9 +120,9 @@ public class createOrder extends Customer{
             String paymentMethod = sc.nextLine();
             String status;
             if (paymentMethod.charAt(0) == 'C' || paymentMethod.charAt(0) == 'c') {
-                status = "unpaid";
+                status = "Processing";
             } else {
-                status = "paid";
+                status = "Processing";
             }
 
             //write new order to orders-data arraylist
@@ -134,6 +134,50 @@ public class createOrder extends Customer{
 
             if (available) {
                 System.out.println("\nYour order is processing...\nCreate Order successfully!");
+                String id = null;
+                ArrayList<String> id_arr = new ArrayList<String>();
+                double total = 0;
+                for (int i = 0; i < customer_data.size(); i++) {
+                    String[] arr = customer_data.get(i).split(",");
+                    id_arr.add(arr[0]);
+                    if (arr[1].equals(getUsername())) {
+                        id = arr[0];
+                    }
+                };
+                for (int i = 0; i < order_data.size(); i++) {
+                    String[] arr = order_data.get(i).split(",");
+                    if (arr[3].equals(id)) {
+                        System.out.println(Double.parseDouble(arr[2]));
+                        total += Double.parseDouble(arr[2]);
+                    }
+                };
+                for (int i = 0; i < customer_data.size(); i++) {
+                    System.out.println(total);
+                    String[] arr = customer_data.get(i).split(",");
+                    if (arr[0].equals(id)) {
+                        if (total > 25000.000) {
+                            arr[7] = "Platinum";
+                            int j = id_arr.indexOf(id);
+                            String new_data = arr[0]+","+arr[1]+","+arr[2]+","+arr[3]+","+arr[4]+","+arr[5]+","+arr[6]+","+arr[7];
+                            getCustomer_data().set(j,new_data);
+                        } else if (total > 10000.000) {
+                            arr[7] = "Gold";
+                            int j = id_arr.indexOf(id);
+                            String new_data = arr[0]+","+arr[1]+","+arr[2]+","+arr[3]+","+arr[4]+","+arr[5]+","+arr[6]+","+arr[7];
+                            getCustomer_data().set(j,new_data);
+                        } else if (total > 5000.000) {
+                            arr[7] = "Silver";
+                            int j = id_arr.indexOf(id);
+                            String new_data = arr[0]+","+arr[1]+","+arr[2]+","+arr[3]+","+arr[4]+","+arr[5]+","+arr[6]+","+arr[7];
+                            getCustomer_data().set(j,new_data);
+                        } else {
+                            arr[7] = "Basic";
+                            int j = id_arr.indexOf(id);
+                            String new_data = arr[0]+","+arr[1]+","+arr[2]+","+arr[3]+","+arr[4]+","+arr[5]+","+arr[6]+","+arr[7];
+                            getCustomer_data().set(j,new_data);
+                        }
+                    }
+                }
             } else {
                 System.out.println("This product does not exist! Please try again!");
             }

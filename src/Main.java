@@ -53,7 +53,7 @@ public class Main {
                                 boolean active1 = true;
                                 while (active1) {
                                     currentCustomer current = new currentCustomer(customer_data,username,password);
-                                    System.out.println("1 View all information" +
+                                    System.out.println("\n"+"\nWelcome to our Store"+"\n-------------------------------------------------"+"\n1 View all information" +
                                             "\n2 Update information" +
                                             "\n3 Check current membership status" +
                                             "\n4 List all products" +
@@ -61,8 +61,7 @@ public class Main {
                                             "\n6 View products by category and price range" +
                                             "\n7 Create a new order" +
                                             "\n8 View my orders" +
-                                            "\n9 Update membership status" +
-                                            "\n10 Exit");
+                                            "\n9 Exit");
                                     int customerOption1 = scanner.nextInt();
                                     switch (customerOption1) {
                                         case 1:
@@ -70,8 +69,6 @@ public class Main {
                                             break;
                                         case 2:
                                             current.update();
-                                            System.out.println(customer_data);
-                                            System.out.println(items_data);
                                             break;
                                         case 3:
                                             current.checkMembership();
@@ -107,10 +104,6 @@ public class Main {
                                             order1.view(orders_data, customer_data);
                                             break;
                                         case 9:
-                                            Membership membership = new Membership(customer_data,orders_data,username);
-                                            membership.updateMembership();
-                                            break;
-                                        case 10:
                                             active1 = false;
                                     }
                                 }
