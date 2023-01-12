@@ -3,11 +3,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class createOrder extends Product{
-    public ArrayList<String> customer_data;
-    public createOrder(ArrayList<String> customer_data, ArrayList<String> items_data) {
-        super(items_data);
-        this.customer_data = customer_data;
+public class createOrder extends Customer{
+    public createOrder(ArrayList<String> customer_data, String username, String password) {
+        super(customer_data, username, password);
     }
 
     public void createOrder(ArrayList<String> item_data, ArrayList<String> order_data, ArrayList<String> customer_data)
@@ -22,12 +20,11 @@ public class createOrder extends Product{
         ArrayList<String> item = new ArrayList<>();
 
         //view customer info and membership
-        System.out.println("Please enter your customerID:");
+        String customerUsername = getUsername();
         do {
-            String ans = sc.nextLine();
             for (String i : customer_data) {
                 String[] split = i.split(",");
-                if (split[0].equals(ans)) {
+                if (split[1].equals(customerUsername)) {
                     customerID = split[0];
                     phone = split[4];
                     email = split[5];
@@ -58,6 +55,7 @@ public class createOrder extends Product{
                 //print products
                 System.out.println("\nOUR PRODUCT");
                 System.out.printf("%-15s%-30s%-10s%-15s%-10s\n", "ID", "Title", "Price", "Category", "In Stock");
+                System.out.println("--------------------------------------------------------------------------------");
                 for (String i : item_data) {
                     String[] split = i.split(",");
                     for (String a : split) {
@@ -122,9 +120,9 @@ public class createOrder extends Product{
             String paymentMethod = sc.nextLine();
             String status;
             if (paymentMethod.charAt(0) == 'C' || paymentMethod.charAt(0) == 'c') {
-                status = "unpaid";
+                status = "Processing";
             } else {
-                status = "paid";
+                status = "Processing";
             }
 
             //write new order to orders-data arraylist
@@ -132,11 +130,54 @@ public class createOrder extends Product{
             String semicolonSeparated = item.toString().replace(",", ";"); //change separator
             order_data.add(String.format("%d,%s,%.3f,%s,%s,%s,%s,%s,%s",
                     orderId, semicolonSeparated, totalPrice, customerID, phone, email, address, date, status));
-            setItems_data(order_data);
             available = true;
 
             if (available) {
                 System.out.println("\nYour order is processing...\nCreate Order successfully!");
+                String id = null;
+                ArrayList<String> id_arr = new ArrayList<String>();
+                double total = 0;
+                for (int i = 0; i < customer_data.size(); i++) {
+                    String[] arr = customer_data.get(i).split(",");
+                    id_arr.add(arr[0]);
+                    if (arr[1].equals(getUsername())) {
+                        id = arr[0];
+                    }
+                };
+                for (int i = 0; i < order_data.size(); i++) {
+                    String[] arr = order_data.get(i).split(",");
+                    if (arr[3].equals(id)) {
+                        System.out.println(Double.parseDouble(arr[2]));
+                        total += Double.parseDouble(arr[2]);
+                    }
+                };
+                for (int i = 0; i < customer_data.size(); i++) {
+                    System.out.println(total);
+                    String[] arr = customer_data.get(i).split(",");
+                    if (arr[0].equals(id)) {
+                        if (total > 25000.000) {
+                            arr[7] = "Platinum";
+                            int j = id_arr.indexOf(id);
+                            String new_data = arr[0]+","+arr[1]+","+arr[2]+","+arr[3]+","+arr[4]+","+arr[5]+","+arr[6]+","+arr[7];
+                            getCustomer_data().set(j,new_data);
+                        } else if (total > 10000.000) {
+                            arr[7] = "Gold";
+                            int j = id_arr.indexOf(id);
+                            String new_data = arr[0]+","+arr[1]+","+arr[2]+","+arr[3]+","+arr[4]+","+arr[5]+","+arr[6]+","+arr[7];
+                            getCustomer_data().set(j,new_data);
+                        } else if (total > 5000.000) {
+                            arr[7] = "Silver";
+                            int j = id_arr.indexOf(id);
+                            String new_data = arr[0]+","+arr[1]+","+arr[2]+","+arr[3]+","+arr[4]+","+arr[5]+","+arr[6]+","+arr[7];
+                            getCustomer_data().set(j,new_data);
+                        } else {
+                            arr[7] = "Basic";
+                            int j = id_arr.indexOf(id);
+                            String new_data = arr[0]+","+arr[1]+","+arr[2]+","+arr[3]+","+arr[4]+","+arr[5]+","+arr[6]+","+arr[7];
+                            getCustomer_data().set(j,new_data);
+                        }
+                    }
+                }
             } else {
                 System.out.println("This product does not exist! Please try again!");
             }

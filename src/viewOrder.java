@@ -1,28 +1,45 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class viewOrder extends Order{
-    public viewOrder(ArrayList<String> orders_data) {
-        super(orders_data);
+public class viewOrder extends Customer{
+    public viewOrder(ArrayList<String> customer_data, String username, String password) {
+        super(customer_data, username, password);
     }
 
-    public void view(ArrayList<String> order_data) {
+    public void view(ArrayList<String> order_data, ArrayList<String> customer_data) {
         Scanner sc = new Scanner(System.in);
         ArrayList<String> lst = new ArrayList<>();
+        String customerID = null;
+        String customerUsername = getUsername();
+        StringBuilder title = new StringBuilder();
 
-
-        System.out.println("Please enter your customer ID:");
-        String customerID = sc.nextLine();
-        System.out.printf("%-15s%-30s%-10s%-20s%-10s\n",
+        for (String i : customer_data) {
+            String[] split = i.split(",");
+            if (customerUsername.equals(split[1])) {
+                customerID = split[0];
+            }
+        }
+        System.out.printf("%-15s%-30s%-15s%-20s%-10s\n",
                 "Order ID", "Title", "Price", "Order date", "Status");
         for (String i : order_data) {
-            String[] split = i.split(",");
-            if (customerID.equals(split[3])) {
-                System.out.printf("%-15s%-30s%-10s%-20s%-10s\n",
-                        split[0], split[1], split[2], split[7], split[8]);
+            String[] split = i.split(",");String a = split[1].replace("[", "");
+            String b = a.replace("]", "");
+            String[] split1 = b.split(";");
+            if (split1.length > 2) {
+                title.append(String.format("%s, %s,...", split1[0], split1[1]));
+            } else if (split1.length == 2){
+                title.append(String.format("%s, %s", split1[0], split1[1]));
+            } else {
+                title.append(String.format("%s", split1[0]));
+            }
+            if (customerID != null && customerID.equals(split[3])) {
+                System.out.printf("%-15s%-30s%-15s%-20s%-10s\n",
+                        split[0], title, split[2], split[7], split[8]);
+                title.delete(0, title.length());
                 lst.add(String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s",
                         split[0], split[1], split[2], split[3], split[4], split[5], split[6], split[7], split[8]));
             }
+            title.delete(0, title.length());
         }
         if (lst.size() == 0) {
             System.out.println("No order to appear hear!");

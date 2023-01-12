@@ -11,6 +11,8 @@ public class getOrderInfo extends Order {
         ArrayList<String> name_arr = new ArrayList<String>();
         boolean valid = false;
         Scanner scanner = new Scanner(System.in);
+        StringBuilder title = new StringBuilder();
+
         while (!valid) {
             System.out.println("Enter the customer ID: ");
             String ID = scanner.nextLine();
@@ -25,10 +27,26 @@ public class getOrderInfo extends Order {
                 System.out.println("No ID matched ");
                 valid = false;
             } else {
+                System.out.printf("%-10s%-40s%-15s%-20s%-15s%-30s%-30s%-15s%-10s\n",
+                        "Order ID", "Title", "Price", "Customer ID", "Phone", "Email address", "Address", "Order date", "Status");
+                System.out.println("----------------------------------------------------" +
+                        "-------------------------------------------------------------------------------" +
+                        "---------------------------------------------------");
                 for (int i = 0; i < order_arr.size(); i++) {
                     String[] arr = order_arr.get(i).split(",");
-                    System.out.println("Order Id: " + arr[0] + ", Items: " + arr[1] + ", Total price: " + arr[2] + ", Customer id: " + arr[3]
-                            + ", Phone number: " + arr[4] + ", Email: " + arr[5] + ", Address: " + arr[6] + ", Date: " + arr[7] + ", Status: " + arr[8]);
+                    String a = arr[1].replace("[", "");
+                    String b = a.replace("]", "");
+                    String[] split1 = b.split(";");
+                    if (split1.length > 2) {
+                        title.append(String.format("%s, %s,...", split1[0], split1[1]));
+                    } else if (split1.length == 2){
+                        title.append(String.format("%s, %s", split1[0], split1[1]));
+                    } else {
+                        title.append(String.format("%s", split1[0]));
+                    }
+                    System.out.printf("%-10s%-40s%-15s%-20s%-15s%-30s%-30s%-15s%-10s\n",
+                            arr[0], title, arr[2], arr[3], arr[4], arr[5], arr[6], arr[7], arr[8]);
+                    title.delete(0, title.length());
                 }
                 valid = true;
             }
