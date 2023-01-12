@@ -1,18 +1,4 @@
-1,Laptop,23000000,customer_id1,123456789,email@gmail.com,123 my dinh,2023-01-01,paid
-2,Iphone,20000000,customer_id2,123456789,email@gmail.com,123 my dinh,2023-01-01,paid
-3,PC,90000000,customer_id3,123456789,email@gmail.com,123 my dinh,2023-01-01,paid
-4,Car,750000000,customer_id3,333,hotmail@gmail.com,65 tran nhat duat,2022-12-01,unpaid
-5,Car,750000000,customer_id3,333,hotmail@gmail.com,65 tran nhat duat,2022-12-01,paid
-6,PC,90000000,customer_id3,123456789,email@gmail.com,123 my dinh,2023-01-02,paid
-7,Iphone,20000000,customer_id2,123456789,email@gmail.com,123 my dinh,2023-01-01,unpaid
-7,[Harman Kardon],46550000,customer_id1,123456789,email@gmail.com,123 cau dien,2023-01-02,unpaid
-8,[Harman Kardon; Macbook Pro 15],54625000,customer_id1,123456789,email@gmail.com,123 cau dien,2023-01-02,paid
-9,[TV Sony; Harman Kardon],17041.650,customer_id2,11111111,email2@gmail.com,25 xa dan,2023-01-09,paid
-10,[Samsung galaxy; TV Sony],42500.000,customer_id3,0908042003,vinhduaws@gmail.com,A1 Ham Nghi,2023-01-11,unpaid
-11,[Item_6; Macbook],28075.500,customer_id3,0908042003,vinhduaws@gmail.com,A1 Ham Nghi,2023-01-11,Delivered
-12,[TV Sony; Samsung galaxy],42500.000,customer_id3,0908042003,vinhduaws@gmail.com,A1 Ham Nghi,2023-01-11,Delivered
-13,[Vinsmart bee; Samsung galaxy],29750.000,customer_id3,0908042003,vinhduaws@gmail.com,A1 Ham Nghi,2023-01-11,Processing
-14,[TV Sony],17000.000,customer_id7,908042003,s3926232@rmit.edu.vn,131 5/8,2023-01-11,Processing
-15,[TV Sony],17000.000,customer_id7,0908042003,s3926232@rmit.edu.vn,131 5/8,2023-01-11,Processing
-16,[TV Sony],19000.000,customer_id7,0908042003,s3926232@rmit.edu.vn,131 5/8,2023-01-11,Processing
-17,[Vinsmart bee; TV Sony],21250.000,customer_id7,0963639918,vinhduaws@gmail.com,A1 vinhomes,2023-01-11,Processing
+0,[Ferrari Laferrari],7650.000,customer_id1,908042003,vinhduaws@gmail.com,A1 vinhomes,2023-01-12,Delivered
+1,[Boeing 16],18050.000,customer_id1,908042003,vinhduaws@gmail.com,A1 vinhomes,2023-01-12,Processing
+2,[Honda Cbr1000; Kawasaki h2r],2720.000,customer_id2,123456,s3924871@rmit.edu.vn,123 abc,2023-01-12,Processing
+3,[Lexus Rx350; Vinfast Vf8],3740.000,customer_id3,12345678,s3930417@rmit.edu.vn,456 xyz,2023-01-12,Processing

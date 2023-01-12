@@ -16,14 +16,18 @@ public class updatePrice extends Product{
         ArrayList<String> amount_arr = new ArrayList<String>();
         boolean valid = false;
         boolean correct = false;
+        System.out.println("Item list:");
+        System.out.println("\n-----------------------------------------------------------------------------------------");
         for (int i = 0; i < getItems_data().size(); i++) {
             String[] arr = getItems_data().get(i).split(",");
             id_arr.add(arr[0]);
             name_arr.add(arr[1]);
             category_arr.add(arr[3]);
             amount_arr.add(arr[4]);
+            System.out.println(getItems_data().get(i));
         }
         while (!valid) {
+            System.out.println("\n-------------------------------------------------------------------------------------");
             System.out.println("Enter id of the product you want to change price:");
             String ID = scanner.nextLine();
             double price = 0;

@@ -12,8 +12,12 @@ public class changeOrderStatus extends Order {
         boolean valid = false;
         boolean correct = false;
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Order list:");
+        System.out.println("\n--------------------------------------------------------------------------");
         for (int i = 0; i < getOrders_data().size(); i++) {
             String[] arr = getOrders_data().get(i).split(",");
+            System.out.println(getOrders_data().get(i));
+            System.out.println("\n");
             id_arr.add(arr[0]);
         }
         while (!valid) {
@@ -30,14 +34,14 @@ public class changeOrderStatus extends Order {
 //                    int opt = 0;
                     try {
                         System.out.println("Change status of order to:" +
-                                "\n1 paid" +
-                                "\n2 unpaid");
+                                "\n1 Delivered" +
+                                "\n2 Processing");
                         int opt = scanner.nextInt();
                         if(opt == 1) {
-                            arr[8] = "paid";
+                            arr[8] = "Delivered";
                             correct = true;
                         } else if (opt == 2) {
-                            arr[8] = "unpaid";
+                            arr[8] = "Processing";
                             correct = true;
                         } else {
                             System.out.println("Input invalid!");
