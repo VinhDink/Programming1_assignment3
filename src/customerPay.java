@@ -12,11 +12,11 @@ public class customerPay extends Order{
                 customer_list.add(order_arr[3]);
             }
         }
-        double highest = 0;
+        int highest = 0;
         String mostPay = "";
         for (String s : customer_list) {
             String ID = s;
-            double total = 0;
+            int total = 0;
             for (int j = 0; j < getOrders_data().size(); j++) {
                 String[] order_arr = getOrders_data().get(j).split(",");
                 if (ID.equals(order_arr[3])) {
@@ -30,7 +30,7 @@ public class customerPay extends Order{
                 mostPay = ID;
             }
         }
-        System.out.printf("Customer with ID: "+ mostPay +" pays the most in the store and has spent total of %.3fVND", highest);
+        System.out.printf("Customer with ID: "+ mostPay +" pays the most in the store and has spent total of " + highest +" VND");
         System.out.println("\n");
     }
 }
