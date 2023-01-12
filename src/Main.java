@@ -53,7 +53,7 @@ public class Main {
                                 boolean active1 = true;
                                 while (active1) {
                                     currentCustomer current = new currentCustomer(customer_data,username,password);
-                                    System.out.println("1 View all information" +
+                                    System.out.println("\n"+"\nWelcome to our Store"+"\n-------------------------------------------------"+"\n1 View all information" +
                                             "\n2 Update information" +
                                             "\n3 Check current membership status" +
                                             "\n4 List all products" +
@@ -61,8 +61,7 @@ public class Main {
                                             "\n6 View products by category and price range" +
                                             "\n7 Create a new order" +
                                             "\n8 View my orders" +
-                                            "\n9 Update membership status" +
-                                            "\n10 Exit");
+                                            "\n9 Exit");
                                     int customerOption1 = scanner.nextInt();
                                     switch (customerOption1) {
                                         case 1:
@@ -105,10 +104,6 @@ public class Main {
                                             order1.view(orders_data, customer_data);
                                             break;
                                         case 9:
-                                            Membership membership = new Membership(customer_data,orders_data,username);
-                                            membership.updateMembership();
-                                            break;
-                                        case 10:
                                             active1 = false;
                                     }
                                 }
@@ -143,7 +138,8 @@ public class Main {
                                             "\n12 See most popular product" +
                                             "\n13 See least popular product" +
                                             "\n14 See all order in a particular day" +
-                                            "\n15 Return");
+                                            "\n15 See list of membership" +
+                                            "\n16 Return");
                                     int option2 = scanner.nextInt();
                                     switch (option2) {
                                         case 1:
@@ -203,6 +199,9 @@ public class Main {
                                             ord2.executedOrder();
                                             break;
                                         case 15:
+                                            membershipList member = new membershipList(customer_data,"","");
+                                            member.showList();
+                                        case 16:
                                             active = false;
                                             logged_in = true;
                                     }
