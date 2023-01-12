@@ -18,7 +18,7 @@ public class dayOrder extends Order{
             String[] order_arr = getOrders_data().get(i).split(",");
             if (day.equals(order_arr[7])) {
                 found = true;
-                if (order_arr[8].equals("paid")) {
+                if (order_arr[8].equals("Delivered")) {
                     paid.append(Arrays.toString(order_arr));
                     paid.append("\n");
                 } else {
@@ -30,8 +30,8 @@ public class dayOrder extends Order{
         if (!found) {
             System.out.println("No date found!");
         } else {
-            System.out.println("Paid order(s) in day " + day + ": \n" + paid);
-            System.out.println("Unpaid order(s) in day " + day + ": \n" + unpaid);
+            System.out.println("Delivered order(s) in day " + day + ": \n" + paid);
+            System.out.println("Processing order(s) in day " + day + ": \n" + unpaid);
         }
     }
 }
