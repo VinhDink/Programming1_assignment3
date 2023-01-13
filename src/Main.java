@@ -141,7 +141,8 @@ public class Main {
                                             "\n15 See list of membership" +
                                             "\n16 Add Category" +
                                             "\n17 Remove Category" +
-                                            "\n18 Return");
+                                            "\n18 See customer with the most spending" +
+                                            "\n19 Return");
                                     int option2 = scanner.nextInt();
                                     switch (option2) {
                                         case 1:
@@ -213,6 +214,10 @@ public class Main {
                                             cate2.removeCategory();
                                             break;
                                         case 18:
+                                            customerPay pay = new customerPay(orders_data);
+                                            pay.mostPay();
+                                            break;
+                                        case 19:
                                             active = false;
                                             logged_in = true;
                                     }

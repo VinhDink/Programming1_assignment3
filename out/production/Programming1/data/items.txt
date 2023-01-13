@@ -1,9 +1,9 @@
 item_1,Lexus Rx350,3400.0,Car,4
 item_2,Mercedes C200,2500.0,Car,8
 item_3,Kawasaki h2r,1800.0,none,5
-item_4,Honda Cbr1000,1400.0,none,11
+item_4,Honda Cbr1000,1400.0,none,10
 item_5,Boeing 777,14000.0,Plane,3
-item_6,Ferrari Laferrari,9000.0,Car,2
+item_6,Ferrari Laferrari,9000.0,Car,1
 item_7,Boeing 16,19000.0,Plane,2
-item_8,Vinfast Vf8,1000.0,Car,19
-item_9,Honda wave,300.0,Bike,23
+item_8,Vinfast Vf8,1000.0,Car,18
+item_9,Honda wave,300.0,Bike,22

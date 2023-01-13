@@ -20,7 +20,7 @@ public class customerPay extends Order{
             for (int j = 0; j < getOrders_data().size(); j++) {
                 String[] order_arr = getOrders_data().get(j).split(",");
                 if (ID.equals(order_arr[3])) {
-                    if (order_arr[8].equals("paid")) {
+                    if (order_arr[8].equals("Delivered")) {
                         total += Double.parseDouble(order_arr[2]);
                     }
                 }

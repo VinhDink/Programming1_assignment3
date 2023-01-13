@@ -4,3 +4,4 @@
 3,[Lexus Rx350; Vinfast Vf8],3740.000,customer_id3,12345678,s3930417@rmit.edu.vn,456 xyz,2023-01-12,Processing
 4,[Ferrari Laferrari],7650.000,customer_id4,9876543,s3362467@rmit.edu.vn,qwer 321,2023-01-12,Processing
 5,[Honda Cbr1000; Vinfast Vf8],2280.000,customer_id4,9876543,s3362467@rmit.edu.vn,qwer 321,2023-01-12,Processing
+6,[Honda wave],255.000,customer_id1,908042003,vinhduaws@gmail.com,A1 vinhomes,2023-01-13,Processing
