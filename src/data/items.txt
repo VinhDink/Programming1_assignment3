@@ -6,4 +6,4 @@ item_5,Boeing 777,14000.0,Plane,3
 item_6,Ferrari Laferrari,9000.0,Car,1
 item_7,Boeing 16,19000.0,Plane,2
 item_8,Vinfast Vf8,1000.0,Car,18
-item_9,Honda wave,300.0,Bike,23
+item_9,Honda wave,300.0,Bike,22
