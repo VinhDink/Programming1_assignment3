@@ -122,7 +122,6 @@ public class createOrder extends Customer{
             if (answer.charAt(0) == 'Y' || answer.charAt(0) == 'y') {
                 continue;
             }
-
             //write new order to orders-data arraylist
             int orderId = order_data.size(); //the id of order
             String semicolonSeparated = item.toString().replace(",", ";"); //change separator

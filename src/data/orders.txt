@@ -1,10 +1,9 @@
-1,Laptop,23000000,customer_id1,123456789,email@gmail.com,123 my dinh,2023-01-01,paid
-2,Iphone,20000000,customer_id2,123456789,email@gmail.com,123 my dinh,2023-01-01,paid
-3,PC,90000000,customer_id3,123456789,email@gmail.com,123 my dinh,2023-01-01,paid
-4,Car,750000000,customer_id3,333,hotmail@gmail.com,65 tran nhat duat,2022-12-01,unpaid
-5,Car,750000000,customer_id3,333,hotmail@gmail.com,65 tran nhat duat,2022-12-01,paid
-6,PC,90000000,customer_id3,123456789,email@gmail.com,123 my dinh,2023-01-02,paid
-7,Iphone,20000000,customer_id2,123456789,email@gmail.com,123 my dinh,2023-01-01,unpaid
-7,[Harman Kardon],46550000,customer_id1,123456789,email@gmail.com,123 cau dien,2023-01-02,unpaid
-8,[Harman Kardon; Macbook Pro 15],54625000,customer_id1,123456789,email@gmail.com,123 cau dien,2023-01-02,paid
-9,[TV Sony; Harman Kardon],17041.650,customer_id2,11111111,email2@gmail.com,25 xa dan,2023-01-09,paid
+order_id0,[Ferrari Laferrari],7650.000,customer_id1,908042003,vinhduaws@gmail.com,A1 vinhomes,2023-01-12,Delivered
+order_id1,[Boeing 16],18050.000,customer_id1,908042003,vinhduaws@gmail.com,A1 vinhomes,2023-01-12,Processing
+order_id2,[Honda Cbr1000; Kawasaki h2r],2720.000,customer_id2,123456,s3924871@rmit.edu.vn,123 abc,2023-01-12,Processing
+order_id3,[Lexus Rx350; Vinfast Vf8],3740.000,customer_id3,12345678,s3930417@rmit.edu.vn,456 xyz,2023-01-12,Processing
+order_id4,[Ferrari Laferrari],7650.000,customer_id4,9876543,s3362467@rmit.edu.vn,qwer 321,2023-01-12,Processing
+order_id5,[Honda Cbr1000; Vinfast Vf8],2280.000,customer_id4,9876543,s3362467@rmit.edu.vn,qwer 321,2023-01-12,Processing
+order_id6,[Honda wave],255.000,customer_id1,908042003,vinhduaws@gmail.com,A1 vinhomes,2023-01-13,Processing
+order_id7,[Lexus Rx350],2890.000,customer_id1,0908042003,s3926232@rmit.edu.vn,65 tran nhat duat,2023-01-15,Delivered
+order_id8,[Lexus Rx350; Honda wave],3145.000,customer_id1,0908042003,s3926232@rmit.edu.vn,65 tran nhat duat,2023-01-15,Processing

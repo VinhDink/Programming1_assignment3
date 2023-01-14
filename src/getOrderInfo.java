@@ -33,7 +33,7 @@ public class getOrderInfo extends Order {
                     order_arr.add(getOrders_data().get(i));
                 }
             }
-            if (name_arr.contains(ID) == false) {
+            if (!name_arr.contains(ID)) {
                 System.out.println("No ID matched ");
                 valid = false;
             } else {

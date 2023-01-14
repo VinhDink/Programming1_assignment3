@@ -17,32 +17,33 @@ public class calculateRevenue extends Order{
     }
 
     public void totalRevenue() {
-        float total = 0;
+        int total = 0;
         for (int i = 0; i < getOrders_data().size(); i++) {
             String[] order_arr = getOrders_data().get(i).split(",");
-            if (order_arr[8].equals("paid")) {
-                total += Float.parseFloat(order_arr[2]);
+            if (order_arr[8].equals("Delivered")) {
+                System.out.println(order_arr[2]);
+                total += Double.parseDouble(order_arr[2]);
             }
         }
-        System.out.println("Total revenue is: " + total + "VND (Paid orders only)");
+        System.out.println("Total revenue is: " + total + " VND (Delivered orders only)");
     }
 
     public void dayRevenue() {
-        float paid = 0;
-        float unpaid = 0;
+        int paid = 0;
+        int unpaid = 0;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter day:");
         String day = scanner.nextLine();
         for (int i = 0; i < getOrders_data().size(); i++) {
             String[] order_arr = getOrders_data().get(i).split(",");
             if (order_arr[7].equals(day)) {
-                if (order_arr[8].equals("paid")) {
-                    paid += Float.parseFloat(order_arr[2]);
+                if (order_arr[8].equals("Delivered")) {
+                    paid += Double.parseDouble(order_arr[2]);
                 }
-                unpaid += Float.parseFloat(order_arr[2]);
+                unpaid += Double.parseDouble(order_arr[2]);
             }
         }
-        System.out.println("Total revenue for day " + day + " is " + paid + "VND (Paid orders only)");
-        System.out.println("Total revenue for day " + day + " is " + unpaid + "VND (Paid and Unpaid orders)");
+        System.out.println("Total revenue for day " + day + " is " + paid + " VND (Delivered orders only)");
+        System.out.println("Total revenue for day " + day + " is " + unpaid + " VND (Delivered and Processing orders)");
     }
 }

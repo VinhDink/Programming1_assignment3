@@ -9,6 +9,7 @@
 */
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class popularProduct extends Order{
     public popularProduct(ArrayList<String> orders_data) {
@@ -18,26 +19,34 @@ public class popularProduct extends Order{
     public void mostPopular() {
         ArrayList<String> item_list = new ArrayList<String>();
         for (int i = 0; i < getOrders_data().size(); i++) {
-            String[] item_arr = getOrders_data().get(i).split(",");
-            if (!item_list.contains(item_arr[1])) {
-                item_list.add(item_arr[1]);
+            String[] item_index = getOrders_data().get(i).split(",");
+            String str = item_index[1].substring(1, item_index[1].length() - 1);
+            String[] item_arr = str.split("; ");
+            for (String s : item_arr) {
+                if (!item_list.contains(s)) {
+                    item_list.add(s);
+                }
             }
+
         }
         String[] arr = new String[item_list.size()];
         arr = item_list.toArray(arr);
-
         String thePopular = "";
         int sale = 0;
         for (String s : arr) {
             int count = 0;
             for (int j = 0; j < getOrders_data().size(); j++) {
-                String[] item_arr = getOrders_data().get(j).split(",");
-                if (s.equals(item_arr[1])) {
-                    count++;
-                }
-                if (count > sale) {
-                    sale = count;
-                    thePopular = s;
+                String[] item_index = getOrders_data().get(j).split(",");
+                String str = item_index[1].substring(1, item_index[1].length() - 1);
+                String[] item_arr = str.split("; ");
+                for (String z : item_arr) {
+                    if (s.equals(z)) {
+                        count++;
+                    }
+                    if (count > sale) {
+                        sale = count;
+                        thePopular = s;
+                    }
                 }
             }
         }
@@ -47,32 +56,39 @@ public class popularProduct extends Order{
     public void leastPopular() {
         ArrayList<String> item_list = new ArrayList<String>();
         for (int i = 0; i < getOrders_data().size(); i++) {
-            String[] item_arr = getOrders_data().get(i).split(",");
-            if (!item_list.contains(item_arr[1])) {
-                item_list.add(item_arr[1]);
+            String[] item_index = getOrders_data().get(i).split(",");
+            String str = item_index[1].substring(1, item_index[1].length() - 1);
+            String[] item_arr = str.split("; ");
+            for (String s : item_arr) {
+                if (!item_list.contains(s)) {
+                    item_list.add(s);
+                }
             }
+
         }
         String[] arr = new String[item_list.size()];
         arr = item_list.toArray(arr);
-
-        String theleast = "";
-        int sale = 1;
+        String theLeast = "";
+        int sale = 100;
         for (String s : arr) {
             int count = 0;
             int total = 0;
             for (int j = 0; j < getOrders_data().size(); j++) {
-                total++;
-                String[] item_arr = getOrders_data().get(j).split(",");
-                if (!s.equals(item_arr[1])) {
-                    count++;
+                String[] item_index = getOrders_data().get(j).split(",");
+                String str = item_index[1].substring(1, item_index[1].length() - 1);
+                String[] item_arr = str.split("; ");
+                for (String z : item_arr) {
+                    total++;
+                    if (!s.equals(z)) {
+                        count++;
+                    }
                 }
             }
             if (sale >= total - count) {
                 sale = total - count;
-                theleast = s;
+                theLeast = s;
             }
-
         }
-        System.out.println(theleast + " is the least popular product with only " + sale + " order(s)");
+        System.out.println(theLeast + " is the least popular product with only " + sale + " order(s)");
     }
 }

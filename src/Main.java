@@ -35,8 +35,8 @@ public class Main {
                     "Instructor: Mr. Tom Huynh & Dr. Phong Ngo\n" +
                     "Group: DNV\n" +
                     "s3926232, Dinh Quang Vinh\n" +
-                    "sXXXXXXX, Student Name\n" +
-                    "sXXXXXXX, Student Name\n" +
+                    "s3362467, Le Hoang Duong\n" +
+                    "s3930417, Ha Thuy Chi\n" +
                     "s3924871, Nguyen Minh Nhat\n" );
             boolean logged_in = true;
             while (logged_in) {
@@ -55,7 +55,7 @@ public class Main {
                                 boolean active1 = true;
                                 while (active1) {
                                     currentCustomer current = new currentCustomer(customer_data,username,password);
-                                    System.out.println("1 View all information" +
+                                    System.out.println("\n"+"\nWelcome to our Store"+"\n-------------------------------------------------"+"\n1 View all information" +
                                             "\n2 Update information" +
                                             "\n3 Check current membership status" +
                                             "\n4 List all products" +
@@ -63,8 +63,7 @@ public class Main {
                                             "\n6 View products by category and price range" +
                                             "\n7 Create a new order" +
                                             "\n8 View my orders" +
-                                            "\n9 Update membership status" +
-                                            "\n10 Exit");
+                                            "\n9 Exit");
                                     int customerOption1 = scanner.nextInt();
                                     switch (customerOption1) {
                                         case 1:
@@ -107,10 +106,6 @@ public class Main {
                                             order1.view(orders_data, customer_data);
                                             break;
                                         case 9:
-                                            Membership membership = new Membership(customer_data,orders_data,username);
-                                            membership.updateMembership();
-                                            break;
-                                        case 10:
                                             active1 = false;
                                     }
                                 }
@@ -131,7 +126,7 @@ public class Main {
                             if (admin.validateAccount() == true) {
                                 boolean active = true;
                                 while (active) {
-                                    System.out.println("1 View information of all products" +
+                                    System.out.println("\n\n-----------------------------------"+"\n1 View information of all products" +
                                             "\n2 View information of all orders" +
                                             "\n3 View information of all member" +
                                             "\n4 Add product" +
@@ -145,7 +140,11 @@ public class Main {
                                             "\n12 See most popular product" +
                                             "\n13 See least popular product" +
                                             "\n14 See all order in a particular day" +
-                                            "\n15 Return");
+                                            "\n15 See list of membership" +
+                                            "\n16 Add Category" +
+                                            "\n17 Remove Category" +
+                                            "\n18 See customer with the most spending" +
+                                            "\n19 Return");
                                     int option2 = scanner.nextInt();
                                     switch (option2) {
                                         case 1:
@@ -205,6 +204,22 @@ public class Main {
                                             ord2.executedOrder();
                                             break;
                                         case 15:
+                                            membershipList member = new membershipList(customer_data,"","");
+                                            member.showList();
+                                            break;
+                                        case 16:
+                                            categoryModifier cate = new categoryModifier(items_data);
+                                            cate.addCategory();
+                                            break;
+                                        case 17:
+                                            categoryModifier cate2 = new categoryModifier(items_data);
+                                            cate2.removeCategory();
+                                            break;
+                                        case 18:
+                                            customerPay pay = new customerPay(orders_data);
+                                            pay.mostPay();
+                                            break;
+                                        case 19:
                                             active = false;
                                             logged_in = true;
                                     }
