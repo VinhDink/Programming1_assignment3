@@ -1,3 +1,13 @@
+/*
+  RMIT University Vietnam
+  Course: COSC2081 Programming 1
+  Semester: 2022C
+  Assessment: Assignment 3
+  Author: Le Hoang Duong
+  ID: s3362467
+  Acknowledgement: None
+*/
+
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,3 +1,13 @@
+/*
+  RMIT University Vietnam
+  Course: COSC2081 Programming 1
+  Semester: 2022C
+  Assessment: Assignment 3
+  Author: Ha Thuy Chi
+  ID: s3930417
+  Acknowledgement: None
+*/
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -44,9 +54,12 @@ public class createOrder extends Customer{
                     } else if (membership.equals("Gold")) {
                         System.out.println("Your discount is 10%");
                         discount = 0.90;
-                    } else {
+                    } else if (membership.equals("Platinum")){
                         System.out.println("Your discount is 15%");
                         discount = 0.85;
+                    } else {
+                        discount = 1;
+                        System.out.println("Your discount is 0%");
                     }
                     matched = true;
                 }
@@ -58,15 +71,10 @@ public class createOrder extends Customer{
                 System.out.println("--------------------------------------------------------------------------------");
                 for (String i : item_data) {
                     String[] split = i.split(",");
-                    for (String a : split) {
-                        System.out.printf("%-15s%-30s%-10s%-15s%-10s\n",
-                                split[0], split[1], split[2], split[3], split[4]);
-                        break;
-                    }
+                    System.out.printf("%-15s%-30s%-10s%-15s%-10s\n",
+                            split[0], split[1], split[2], split[3], split[4]);
                 }
                 System.out.println();
-            } else {
-                System.out.println("Your ID is not available, please try again!");
             }
         } while (!matched);
 
@@ -95,7 +103,7 @@ public class createOrder extends Customer{
                     }
 
                     //display item after applying discount
-                    System.out.println("\n");
+                    System.out.println("\n-------------------------------------");
                     System.out.println("After applying discount, your item is");
                     totalPrice += Double.parseDouble(split[2]) * discount;
                     split[2] = String.valueOf(Double.parseDouble(split[2]) * discount);
@@ -114,22 +122,11 @@ public class createOrder extends Customer{
             if (answer.charAt(0) == 'Y' || answer.charAt(0) == 'y') {
                 continue;
             }
-
-            //paid or unpaid?
-            System.out.println("\nHow do you want to purchase? (COD/Online Banking)");
-            String paymentMethod = sc.nextLine();
-            String status;
-            if (paymentMethod.charAt(0) == 'C' || paymentMethod.charAt(0) == 'c') {
-                status = "Processing";
-            } else {
-                status = "Processing";
-            }
-
             //write new order to orders-data arraylist
             int orderId = order_data.size(); //the id of order
             String semicolonSeparated = item.toString().replace(",", ";"); //change separator
-            order_data.add(String.format("%d,%s,%.3f,%s,%s,%s,%s,%s,%s",
-                    orderId, semicolonSeparated, totalPrice, customerID, phone, email, address, date, status));
+            order_data.add(String.format("order_id%d,%s,%.3f,%s,%s,%s,%s,%s,Processing",
+                    orderId, semicolonSeparated, totalPrice, customerID, phone, email, address, date));
             available = true;
 
             if (available) {
@@ -147,12 +144,10 @@ public class createOrder extends Customer{
                 for (int i = 0; i < order_data.size(); i++) {
                     String[] arr = order_data.get(i).split(",");
                     if (arr[3].equals(id)) {
-                        System.out.println(Double.parseDouble(arr[2]));
                         total += Double.parseDouble(arr[2]);
                     }
                 };
                 for (int i = 0; i < customer_data.size(); i++) {
-                    System.out.println(total);
                     String[] arr = customer_data.get(i).split(",");
                     if (arr[0].equals(id)) {
                         if (total > 25000.000) {

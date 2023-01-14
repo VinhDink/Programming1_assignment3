@@ -1,4 +1,4 @@
-customer_id1,VinhDinh,vinh2542003,Vinh Dinh Quang,908042003,vinhduaws@gmail.com,A1 vinhomes,Platinum
+customer_id1,VinhDinh,vinh2542003,Vinh Dinh,0908042003,s3926232@rmit.edu.vn,65 tran nhat duat,Platinum
 customer_id2,Nhat,Nhat123,Nguyen Minh Nhat,123456,s3924871@rmit.edu.vn,123 abc,Basic
 customer_id3,Chi,Chi123,Ha Thuy Chi,12345678,s3930417@rmit.edu.vn,456 xyz,Basic
 customer_id4,Duong,Duong123,Le Hoang Duong,9876543,s3362467@rmit.edu.vn,qwer 321,Silver
