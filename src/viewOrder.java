@@ -1,3 +1,13 @@
+/*
+  RMIT University Vietnam
+  Course: COSC2081 Programming 1
+  Semester: 2022C
+  Assessment: Assignment 3
+  Author: Ha Thuy Chi
+  ID: s3930417
+  Acknowledgement: None
+*/
+
 import java.util.ArrayList;
 import java.util.Scanner;
 

@@ -1,3 +1,12 @@
+/*
+  RMIT University Vietnam
+  Course: COSC2081 Programming 1
+  Semester: 2022C
+  Assessment: Assignment 3
+  Author: Nguyen Minh Nhat
+  ID: s3924871
+  Acknowledgement: None
+*/
 import java.util.ArrayList;
 
 public class customerPay extends Order{
