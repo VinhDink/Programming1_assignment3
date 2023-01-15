@@ -87,6 +87,7 @@ public class createOrder extends Customer{
             for (String a : item_data) {
                 String[] split = a.split(",");
                 if (split[0].equals(ans)) {
+                    available = true;
                     //update in stock value of item_data arraylist
                     int inStock = Integer.parseInt(split[4]);
                     split[4] = String.valueOf(inStock-1);
@@ -115,21 +116,23 @@ public class createOrder extends Customer{
 
                 }
             }
-            //more items?
-            System.out.println("\nDo you want to continue shopping? (Yes/No)");
-            Scanner scanner = new Scanner(System.in);
-            String answer = scanner.nextLine();
-            if (answer.charAt(0) == 'Y' || answer.charAt(0) == 'y') {
-                continue;
-            }
-            //write new order to orders-data arraylist
-            int orderId = order_data.size(); //the id of order
-            String semicolonSeparated = item.toString().replace(",", ";"); //change separator
-            order_data.add(String.format("order_id%d,%s,%.3f,%s,%s,%s,%s,%s,Processing",
-                    orderId, semicolonSeparated, totalPrice, customerID, phone, email, address, date));
-            available = true;
 
             if (available) {
+                //more items?
+                System.out.println("\nDo you want to continue shopping? (Yes/No)");
+                Scanner scanner = new Scanner(System.in);
+                String answer = scanner.nextLine();
+                if (answer.charAt(0) == 'Y' || answer.charAt(0) == 'y') {
+                    available = false;
+                    continue;
+                }
+                //write new order to orders-data arraylist
+                int orderId = order_data.size(); //the id of order
+                String semicolonSeparated = item.toString().replace(",", ";"); //change separator
+                order_data.add(String.format("order_id%d,%s,%.3f,%s,%s,%s,%s,%s,Processing",
+                        orderId, semicolonSeparated, totalPrice, customerID, phone, email, address, date));
+
+
                 System.out.println("\nYour order is processing...\nCreate Order successfully!");
                 String id = null;
                 ArrayList<String> id_arr = new ArrayList<String>();
@@ -140,13 +143,13 @@ public class createOrder extends Customer{
                     if (arr[1].equals(getUsername())) {
                         id = arr[0];
                     }
-                };
+                }
                 for (int i = 0; i < order_data.size(); i++) {
                     String[] arr = order_data.get(i).split(",");
                     if (arr[3].equals(id)) {
                         total += Double.parseDouble(arr[2]);
                     }
-                };
+                }
                 for (int i = 0; i < customer_data.size(); i++) {
                     String[] arr = customer_data.get(i).split(",");
                     if (arr[0].equals(id)) {
