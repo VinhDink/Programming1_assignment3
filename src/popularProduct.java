@@ -29,11 +29,9 @@ public class popularProduct extends Order{
             }
 
         }
-        String[] arr = new String[item_list.size()];
-        arr = item_list.toArray(arr);
         String thePopular = "";
         int sale = 0;
-        for (String s : arr) {
+        for (String s : item_list) {
             int count = 0;
             for (int j = 0; j < getOrders_data().size(); j++) {
                 String[] item_index = getOrders_data().get(j).split(",");
@@ -66,11 +64,9 @@ public class popularProduct extends Order{
             }
 
         }
-        String[] arr = new String[item_list.size()];
-        arr = item_list.toArray(arr);
         String theLeast = "";
         int sale = 100;
-        for (String s : arr) {
+        for (String s : item_list) {
             int count = 0;
             int total = 0;
             for (int j = 0; j < getOrders_data().size(); j++) {
