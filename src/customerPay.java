@@ -39,7 +39,7 @@ public class customerPay extends Order{
                 mostPay = ID;
             }
         }
-        System.out.printf("Customer with ID: "+ mostPay +" pays the most in the store and has spent total of " + highest +" VND");
+        System.out.printf("Customer with ID: "+ mostPay +" pays the most in the store and has spent total of " + highest +".000 VND");
         System.out.println("\n");
     }
 }

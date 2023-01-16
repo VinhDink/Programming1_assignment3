@@ -25,7 +25,7 @@ public class calculateRevenue extends Order{
                 total += Double.parseDouble(order_arr[2]);
             }
         }
-        System.out.println("Total revenue is: " + total + " VND (Delivered orders only)");
+        System.out.println("Total revenue is: " + total + ".000 VND (Delivered orders only)");
     }
 
     public void dayRevenue() {
@@ -43,7 +43,7 @@ public class calculateRevenue extends Order{
                 unpaid += Double.parseDouble(order_arr[2]);
             }
         }
-        System.out.println("Total revenue for day " + day + " is " + paid + " VND (Delivered orders only)");
-        System.out.println("Total revenue for day " + day + " is " + unpaid + " VND (Delivered and Processing orders)");
+        System.out.println("Total revenue for day " + day + " is " + paid + ".000 VND (Delivered orders only)");
+        System.out.println("Total revenue for day " + day + " is " + unpaid + ".000 VND (Delivered and Processing orders)");
     }
 }
